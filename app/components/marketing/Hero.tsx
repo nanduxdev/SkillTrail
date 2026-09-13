@@ -28,7 +28,7 @@ const sources = [
     label: "Projects",
     description: "apps, libraries",
     icon: Folder,
-    className: "left-[37%] -top-[1.5%]",
+    className: "left-[41%] -top-[1.5%]",
   },
   {
     label: "DSA Practice",
@@ -188,7 +188,7 @@ function NetworkLines() {
 
       {/* Projects → Story */}
       <path
-        d="M410 65 C410 190 420 255 410 385"
+        d="M450 65 C510 190 420 155 410 385"
         stroke="currentColor"
         strokeWidth="1.2"
         strokeDasharray="7 7"
@@ -231,7 +231,7 @@ function NetworkLines() {
         className="text-orange-600"
       />
       <circle
-        cx="410"
+        cx="450"
         cy="65"
         r="5"
         fill="currentColor"

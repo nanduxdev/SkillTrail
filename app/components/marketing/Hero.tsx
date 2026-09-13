@@ -206,9 +206,9 @@ function NetworkLines() {
 
       {/* PR → Story */}
       <path
-        d="M300 185 C345 270 350 275 400 385"
+        d="M300 185 C300 270 350 275 400 385"
         stroke="currentColor"
-        strokeWidth="1.2"
+        strokeWidth="1.2" 
         strokeDasharray="7 7"
         className="text-neutral-400"
       />

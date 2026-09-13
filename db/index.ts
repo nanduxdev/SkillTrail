@@ -1,13 +1,13 @@
-export * from "./auth";
-export * from "./enums";
-export * from "./profile";
-export * from "./social";
-export * from "./content";
-export * from "./composition";
-export * from "./x";
-export * from "./media";
-export * from "./publication";
-export * from "./ai";
-export * from "./research";
-export * from "./discovery";
-export * from "./notification";
+import { drizzle } from "drizzle-orm/postgres-js";
+import { appRelations } from "./relations";
+import { authRelations } from "./schema/auth-schema";
+
+// Node runtime (not Bun) per the project's runtime decision — Prisma/Drizzle,
+// Playwright, Sharp, BullMQ, and the MCP TypeScript SDK are all built/tested
+// primarily against Node.
+export const db = drizzle(process.env.DATABASE_URL!, {
+  relations: { ...appRelations, ...authRelations },
+});
+
+const result = await db.execute("select 1");
+export type Database = typeof db;

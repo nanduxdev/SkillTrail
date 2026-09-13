@@ -1,0 +1,22 @@
+{
+  "eval_name": "waitlist-signup",
+  "prompt": "give me a prompt to build a waitlist signup for my coming soon landing page",
+  "assertions": [
+    {
+      "text": "Output contains a copy-paste-ready prompt block",
+      "type": "content"
+    },
+    {
+      "text": "Output identifies the target tool or agent type",
+      "type": "content"
+    },
+    {
+      "text": "Prompt is self-contained without referencing prior conversation",
+      "type": "content"
+    },
+    {
+      "text": "Output includes scope boundaries or out-of-scope section",
+      "type": "content"
+    }
+  ]
+}

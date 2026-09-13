@@ -1,0 +1,25 @@
+{
+  "expectations": [
+    {
+      "text": "Output contains a copy-paste-ready prompt block",
+      "passed": false,
+      "evidence": "Automated content check on response.md"
+    },
+    {
+      "text": "Output identifies the target tool or agent type",
+      "passed": true,
+      "evidence": "Automated content check on response.md"
+    },
+    {
+      "text": "Prompt is self-contained without referencing prior conversation",
+      "passed": true,
+      "evidence": "Automated content check on response.md"
+    },
+    {
+      "text": "Output includes scope boundaries or out-of-scope section",
+      "passed": false,
+      "evidence": "Automated content check on response.md"
+    }
+  ],
+  "pass_rate": 0.5
+}

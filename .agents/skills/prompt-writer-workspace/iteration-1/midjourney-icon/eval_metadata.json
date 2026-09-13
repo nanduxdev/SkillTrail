@@ -1,0 +1,22 @@
+{
+  "eval_name": "midjourney-icon",
+  "prompt": "craft a midjourney prompt for an app icon, something with git commits and narrative",
+  "assertions": [
+    {
+      "text": "Output contains a copy-paste-ready prompt block",
+      "type": "content"
+    },
+    {
+      "text": "Output identifies the target tool or agent type",
+      "type": "content"
+    },
+    {
+      "text": "Prompt is self-contained without referencing prior conversation",
+      "type": "content"
+    },
+    {
+      "text": "Output includes scope boundaries or out-of-scope section",
+      "type": "content"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+[
+  {"query": "give me a prompt to build a waitlist form for my landing page that I can paste into cursor", "should_trigger": true},
+  {"query": "write a prompt for v0 to create a dark premium hero section with 3 feature cards", "should_trigger": true},
+  {"query": "craft a midjourney prompt for a minimal app icon, git commits meets storytelling", "should_trigger": true},
+  {"query": "what should I tell the agent to refactor our auth to use better-auth without breaking the API", "should_trigger": true},
+  {"query": "need a prompt I can give chatgpt to explain server actions to a junior dev on my team", "should_trigger": true},
+  {"query": "help me write an agent prompt for debugging why our drizzle migration keeps failing on prod", "should_trigger": true},
+  {"query": "give me something to paste into bolt.new for a pricing page with founding tier highlighted", "should_trigger": true},
+  {"query": "i want to delegate this to another AI — write the prompt for implementing stripe checkout", "should_trigger": true},
+  {"query": "prompt to give claude code for adding accessible dark mode toggle to next.js app", "should_trigger": true},
+  {"query": "turn my idea into a prompt: multi-step migration from next-auth to better-auth", "should_trigger": true},
+  {"query": "fix the bug in login.tsx where the form submits twice", "should_trigger": false},
+  {"query": "write a git commit message for my staged changes", "should_trigger": false},
+  {"query": "review this PR for security issues", "should_trigger": false},
+  {"query": "explain what drizzle ORM relations are", "should_trigger": false},
+  {"query": "add dark mode to my app", "should_trigger": false},
+  {"query": "create a new skill for pdf processing", "should_trigger": false},
+  {"query": "run bun test and fix any failures", "should_trigger": false},
+  {"query": "what is the best prompt engineering technique for chain of thought", "should_trigger": false},
+  {"query": "optimize this SQL query for performance", "should_trigger": false},
+  {"query": "write the landing page hero copy for SkillTrail", "should_trigger": false}
+]

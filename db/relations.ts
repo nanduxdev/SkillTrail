@@ -1,5 +1,5 @@
 import { defineRelations } from "drizzle-orm";
-import * as schema from "./schema";
+import * as schema from "./schema/index";
 
 /**
  * Single source of truth for every relationship in the schema, per the
@@ -13,7 +13,7 @@ import * as schema from "./schema";
  * etc.) are kept as explicit one/many pairs instead — collapsing those with
  * `through` would hide data callers actually need.
  */
-export const relations = defineRelations(schema, (r) => ({
+export const appRelations = defineRelations(schema, (r) => ({
   user: {
     applicationProfile: r.one.applicationProfile({
       from: r.user.id,

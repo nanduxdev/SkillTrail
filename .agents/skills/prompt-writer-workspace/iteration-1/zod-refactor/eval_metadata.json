@@ -1,0 +1,22 @@
+{
+  "eval_name": "zod-refactor",
+  "prompt": "what should I tell cursor to refactor our form validation to use zod without changing the API",
+  "assertions": [
+    {
+      "text": "Output contains a copy-paste-ready prompt block",
+      "type": "content"
+    },
+    {
+      "text": "Output identifies the target tool or agent type",
+      "type": "content"
+    },
+    {
+      "text": "Prompt is self-contained without referencing prior conversation",
+      "type": "content"
+    },
+    {
+      "text": "Output includes scope boundaries or out-of-scope section",
+      "type": "content"
+    }
+  ]
+}

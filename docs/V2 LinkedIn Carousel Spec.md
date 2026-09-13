@@ -8,9 +8,9 @@
 
 ## Scope
 
-The LinkedIn carousel/document-post builder is **not part of CommitStory V1**.
+The LinkedIn carousel/document-post builder is **not part of SkillTrail V1**.
 
-CommitStory V1 should keep LinkedIn publishing simple:
+SkillTrail V1 should keep LinkedIn publishing simple:
 
 ```text
 User provides context
@@ -40,7 +40,7 @@ V2 should support all three workflows:
 
 1. Create a document/carousel manually from scratch.
 2. Provide content to AI and have AI create the initial carousel/document.
-3. Upload an existing PDF and either use it as-is or work with it inside CommitStory.
+3. Upload an existing PDF and either use it as-is or work with it inside SkillTrail.
 
 ```text
 Manual creation
@@ -78,7 +78,7 @@ The editor should combine:
 - structured templates/layouts
 - flexible element editing
 
-CommitStory should not attempt to become a full Canva/Figma-style unrestricted design tool.
+SkillTrail should not attempt to become a full Canva/Figma-style unrestricted design tool.
 
 ---
 
@@ -141,14 +141,14 @@ Users can duplicate an entire carousel/document to create a new editable version
 
 ---
 
-## Q9. Preserve original PDF + create independent CommitStory document
+## Q9. Preserve original PDF + create independent SkillTrail document
 
 **Decision: C — Both**
 
 When importing an existing PDF:
 
 - preserve the original uploaded PDF
-- also create an independent CommitStory document when the user chooses the editable/AI-assisted workflow
+- also create an independent SkillTrail document when the user chooses the editable/AI-assisted workflow
 
 Additional locked behavior:
 
@@ -158,11 +158,11 @@ Upload PDF
 Keep original PDF
    ↓
 Ask whether AI assistance is wanted
-   ├── Yes → create/edit CommitStory document
+   ├── Yes → create/edit SkillTrail document
    └── No  → original document remains the publishing source
 ```
 
-The editable CommitStory version takes priority when the user chooses the editable/AI-assisted route.
+The editable SkillTrail version takes priority when the user chooses the editable/AI-assisted route.
 
 The user can later decide not to use AI intervention and publish the original document instead.
 
@@ -195,7 +195,7 @@ For newly created documents, the user can choose the page orientation/dimensions
 
 **Decision: C**
 
-New CommitStory-created documents use one consistent page size throughout the document.
+New SkillTrail-created documents use one consistent page size throughout the document.
 
 Imported PDFs preserve their native page dimensions.
 
@@ -413,7 +413,7 @@ These are preserved for the V2 implementation.
 
 ---
 
-## Relationship to the CommitStory content model
+## Relationship to the SkillTrail content model
 
 The carousel/document should eventually fit into the existing content architecture:
 

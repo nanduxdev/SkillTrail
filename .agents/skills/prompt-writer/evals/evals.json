@@ -1,0 +1,65 @@
+{
+  "skill_name": "prompt-writer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "give me a prompt to build a waitlist signup for my coming soon landing page",
+      "expected_output": "Copy-paste-ready IDE agent prompt with goal, requirements, accessibility, scope limits, and verification steps",
+      "files": [],
+      "assertions": [
+        "Output contains a copy-paste-ready prompt block",
+        "Output identifies the target tool or agent type",
+        "Prompt is self-contained without referencing prior conversation",
+        "Output includes scope boundaries or out-of-scope section"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "write a prompt I can paste into v0 for a hero section, dark premium SaaS vibe",
+      "expected_output": "Self-contained v0 prompt with layout, style tokens, responsive behavior, and component props",
+      "files": [],
+      "assertions": [
+        "Output contains a copy-paste-ready prompt block",
+        "Output identifies the target tool or agent type",
+        "Prompt is self-contained without referencing prior conversation",
+        "Output includes scope boundaries or out-of-scope section"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "give me a prompt to explain how server actions work to a junior dev on my team",
+      "expected_output": "Explanation prompt with audience, depth, format, and concrete 'after reading' capability",
+      "files": [],
+      "assertions": [
+        "Output contains a copy-paste-ready prompt block",
+        "Output identifies the target tool or agent type",
+        "Prompt is self-contained without referencing prior conversation",
+        "Output includes scope boundaries or out-of-scope section"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "craft a midjourney prompt for an app icon, something with git commits and narrative",
+      "expected_output": "Image gen prompt with subject, composition, style, colors, aspect ratio, and negative prompt",
+      "files": [],
+      "assertions": [
+        "Output contains a copy-paste-ready prompt block",
+        "Output identifies the target tool or agent type",
+        "Prompt is self-contained without referencing prior conversation",
+        "Output includes scope boundaries or out-of-scope section"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "what should I tell cursor to refactor our form validation to use zod without changing the API",
+      "expected_output": "Refactor-style IDE prompt with constraints, patterns, verification, and out-of-scope items",
+      "files": [],
+      "assertions": [
+        "Output contains a copy-paste-ready prompt block",
+        "Output identifies the target tool or agent type",
+        "Prompt is self-contained without referencing prior conversation",
+        "Output includes scope boundaries or out-of-scope section"
+      ]
+    }
+  ]
+}

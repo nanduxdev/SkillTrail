@@ -126,7 +126,8 @@ The logo mark is a **trail**: two weighted strokes and a terminal dot — progre
 | **Reverse horizontal lockup** | `public/brand/skilltrail-logo-white.svg` | SVG | Full wordmark + mark on dark surfaces |
 | **Standalone mark** | `public/brand/skilltrail-mark.svg` | SVG | Compact contexts; orange mark on light/transparent surfaces |
 | **Reverse standalone mark** | `public/brand/skilltrail-mark-white.svg` | SVG | Mark only on dark surfaces |
-| **Favicon** | `public/brand/favicon.svg` | SVG | Browser favicon; standalone mark with favicon-specific viewBox |
+| **Favicon .svg** | `public/brand/favicon.svg` | SVG |SVG format of the browser favicon; standalone mark with favicon-specific viewBox |
+| **Favicon .ico** | `app/favicon.ico` | icon | Browser favicon; standalone mark with favicon-specific viewBox |
 | **Brand verification** | `public/brand/brand-verification.html` | HTML | Rendered reference and verification checklist |
 | **Logo raster reference** | `public/brand/skilltrail-logo.png` | PNG | Raster reference/export; not preferred for UI embedding |
 | **Logo preview** | `public/brand/skilltrail-logo-preview.png` | PNG | Visual preview/reference |

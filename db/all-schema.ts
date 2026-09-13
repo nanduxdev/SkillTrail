@@ -1,4 +1,4 @@
-//this file is only for schema visualization tools not for any runtime code
+//this file is only for schema visualization tools not for any runtime code and could have unsynced older version of schema
 import { defineRelations, sql } from "drizzle-orm";
 import {
   AnyPgColumn,

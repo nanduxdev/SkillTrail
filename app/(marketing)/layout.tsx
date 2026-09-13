@@ -24,6 +24,7 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://skilltrail.nandux.dev"),
   title: "SkillTrail — Turn What You Build Into Stories Worth Sharing",
   description:
     "SkillTrail helps developers turn the things they build, learn, and discover into stories worth sharing. Join the first founding users and help shape what comes next.",

@@ -1,22 +1,22 @@
 {
-  "eval_name": "explain-server-actions",
-  "prompt": "give me a prompt to explain how server actions work to a junior dev on my team",
-  "assertions": [
-    {
-      "text": "Output contains a copy-paste-ready prompt block",
-      "type": "content"
-    },
-    {
-      "text": "Output identifies the target tool or agent type",
-      "type": "content"
-    },
-    {
-      "text": "Prompt is self-contained without referencing prior conversation",
-      "type": "content"
-    },
-    {
-      "text": "Output includes scope boundaries or out-of-scope section",
-      "type": "content"
-    }
-  ]
+	"eval_name": "explain-server-actions",
+	"prompt": "give me a prompt to explain how server actions work to a junior dev on my team",
+	"assertions": [
+		{
+			"text": "Output contains a copy-paste-ready prompt block",
+			"type": "content"
+		},
+		{
+			"text": "Output identifies the target tool or agent type",
+			"type": "content"
+		},
+		{
+			"text": "Prompt is self-contained without referencing prior conversation",
+			"type": "content"
+		},
+		{
+			"text": "Output includes scope boundaries or out-of-scope section",
+			"type": "content"
+		}
+	]
 }

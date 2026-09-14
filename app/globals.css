@@ -1,335 +1,349 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import 'lenis/dist/lenis.css';
+@import "lenis/dist/lenis.css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Typography */
-  --font-display: var(--font-display);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
+	/* Typography */
+	--font-display: var(--font-display);
+	--font-sans: var(--font-sans);
+	--font-mono: var(--font-mono);
 
-  /* SkillTrail brand */
-  --color-brand-light: #b44822;
-  --color-brand-dark: #d85b2a;
+	/* SkillTrail brand */
+	--color-brand-light: #b44822;
+	--color-brand-dark: #d85b2a;
 
-  /* Application surfaces */
-  --color-ground: #08090d;
-  --color-surface: #0e1018;
-  --color-surface-2: #141720;
-  --color-border: #1d2030;
+	/* Application surfaces */
+	--color-ground: #08090d;
+	--color-surface: #0e1018;
+	--color-surface-2: #141720;
+	--color-border: #1d2030;
 
-  /* Brand-neutral text */
-  --color-ivory: #e7e3da;
-  --color-ivory-dim: #9a9690;
+	/* Brand-neutral text */
+	--color-ivory: #e7e3da;
+	--color-ivory-dim: #9a9690;
 
-  /*
+	/*
    * Legacy aliases.
    * Keep these temporarily if existing components use
    * text-gold / bg-gold / border-gold etc.
    */
-  --color-gold: #b44822;
-  --color-gold-light: #d85b2a;
-  --color-gold-dim: #8a3519;
+	--color-gold: #b44822;
+	--color-gold-light: #d85b2a;
+	--color-gold-dim: #8a3519;
 }
 
 html,
 body,
 #root {
-  height: 100%;
+	height: 100%;
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
-  font-family: var(--font-sans);
-  background: var(--color-ground);
-  color: var(--color-ivory);
-  -webkit-font-smoothing: antialiased;
+	font-family: var(--font-sans);
+	background: var(--color-ground);
+	color: var(--color-ivory);
+	-webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: var(--brand-primary);
-  color: var(--primary-foreground);
+	background: var(--brand-primary);
+	color: var(--primary-foreground);
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 4px;
+	width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+	background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 2px;
+	background: var(--border);
+	border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--brand-primary);
+	background: var(--brand-primary);
 }
 
 @theme inline {
-  --font-heading: var(--font-serif);
-  --font-serif: var(--font-serif);
+	--font-heading: var(--font-serif);
+	--font-serif: var(--font-serif);
 
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
+	--color-sidebar-ring: var(--sidebar-ring);
+	--color-sidebar-border: var(--sidebar-border);
+	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+	--color-sidebar-accent: var(--sidebar-accent);
+	--color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+	--color-sidebar-primary: var(--sidebar-primary);
+	--color-sidebar-foreground: var(--sidebar-foreground);
+	--color-sidebar: var(--sidebar);
 
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
+	--color-chart-5: var(--chart-5);
+	--color-chart-4: var(--chart-4);
+	--color-chart-3: var(--chart-3);
+	--color-chart-2: var(--chart-2);
+	--color-chart-1: var(--chart-1);
 
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --color-foreground: var(--foreground);
-  --color-background: var(--background);
+	--color-ring: var(--ring);
+	--color-input: var(--input);
+	--color-border: var(--border);
+	--color-destructive: var(--destructive);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-accent: var(--accent);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-muted: var(--muted);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-secondary: var(--secondary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-primary: var(--primary);
+	--color-popover-foreground: var(--popover-foreground);
+	--color-popover: var(--popover);
+	--color-card-foreground: var(--card-foreground);
+	--color-card: var(--card);
+	--color-foreground: var(--foreground);
+	--color-background: var(--background);
 
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
+	--radius-sm: calc(var(--radius) * 0.6);
+	--radius-md: calc(var(--radius) * 0.8);
+	--radius-lg: var(--radius);
+	--radius-xl: calc(var(--radius) * 1.4);
+	--radius-2xl: calc(var(--radius) * 1.8);
+	--radius-3xl: calc(var(--radius) * 2.2);
+	--radius-4xl: calc(var(--radius) * 2.6);
 }
 
 :root {
-
- /* =========================
+	/* =========================
     Launching Page Design System
      ========================= */
 
-  --c-paper: #F7F6F2;
-  --c-ink: #14171A;
-  --c-charcoal: #383C41;
-  --c-orange: #B44822;
-  --c-line: #DEDBD2;
-  --c-white: #FFFFFF;
-  --c-muted: #6F7378;
-  --f-display: 'Fraunces', Georgia, serif;
-  --f-sans: 'DM Sans', sans-serif;
-  --f-mono: 'JetBrains Mono', monospace;
+	--c-paper: #f7f6f2;
+	--c-ink: #14171a;
+	--c-charcoal: #383c41;
+	--c-orange: #b44822;
+	--c-line: #dedbd2;
+	--c-white: #ffffff;
+	--c-muted: #6f7378;
+	--f-display: "Fraunces", Georgia, serif;
+	--f-sans: "DM Sans", sans-serif;
+	--f-mono: "JetBrains Mono", monospace;
 
-  /* =========================
+	/* =========================
      SkillTrail — Light Mode
      ========================= */
 
-  --background: #f7f6f2;
-  --foreground: #14171a;
+	--background: #f7f6f2;
+	--foreground: #14171a;
 
-  --card: #ffffff;
-  --card-foreground: #14171a;
+	--card: #ffffff;
+	--card-foreground: #14171a;
 
-  --popover: #ffffff;
-  --popover-foreground: #14171a;
+	--popover: #ffffff;
+	--popover-foreground: #14171a;
 
-  /* SkillTrail light primary */
-  --primary: #b44822;
-  --primary-foreground: #ffffff;
+	/* SkillTrail light primary */
+	--primary: #b44822;
+	--primary-foreground: #ffffff;
 
-  --secondary: #eeece5;
-  --secondary-foreground: #383c41;
+	--secondary: #eeece5;
+	--secondary-foreground: #383c41;
 
-  --muted: #f0eee8;
-  --muted-foreground: #6f7378;
+	--muted: #f0eee8;
+	--muted-foreground: #6f7378;
 
-  --accent: #f1e8e3;
-  --accent-foreground: #7e351e;
+	--accent: #f1e8e3;
+	--accent-foreground: #7e351e;
 
-  --destructive: #b42318;
+	--destructive: #b42318;
 
-  --border: #dedbd2;
-  --input: #d8d5cd;
-  --ring: #b44822;
+	--border: #dedbd2;
+	--input: #d8d5cd;
+	--ring: #b44822;
 
-  /*
+	/*
    * SkillTrail chart palette.
    *
    * Same brand hue, different luminance/saturation,
    * rather than unrelated yellow/green/blue colors.
    */
-  --chart-1: #b44822;
-  --chart-2: #d85b2a;
-  --chart-3: #e77a50;
-  --chart-4: #963b1d;
-  --chart-5: #6f2d18;
+	--chart-1: #b44822;
+	--chart-2: #d85b2a;
+	--chart-3: #e77a50;
+	--chart-4: #963b1d;
+	--chart-5: #6f2d18;
 
-  --radius: 0.625rem;
+	--radius: 0.625rem;
 
-  --sidebar: #faf9f6;
-  --sidebar-foreground: #383c41;
+	--sidebar: #faf9f6;
+	--sidebar-foreground: #383c41;
 
-  --sidebar-primary: #b44822;
-  --sidebar-primary-foreground: #ffffff;
+	--sidebar-primary: #b44822;
+	--sidebar-primary-foreground: #ffffff;
 
-  --sidebar-accent: #f1e8e3;
-  --sidebar-accent-foreground: #7e351e;
+	--sidebar-accent: #f1e8e3;
+	--sidebar-accent-foreground: #7e351e;
 
-  --sidebar-border: #dedbd2;
-  --sidebar-ring: #b44822;
+	--sidebar-border: #dedbd2;
+	--sidebar-ring: #b44822;
 
-  /* Explicit brand aliases */
-  --brand-primary: #b44822;
+	/* Explicit brand aliases */
+	--brand-primary: #b44822;
 }
 
-
 .dark {
-  /* =========================
+	/* =========================
      SkillTrail — Dark Mode
      ========================= */
 
-  --background: #08090d;
-  --foreground: #e7e3da;
+	--background: #08090d;
+	--foreground: #e7e3da;
 
-  --card: #0e1018;
-  --card-foreground: #e7e3da;
+	--card: #0e1018;
+	--card-foreground: #e7e3da;
 
-  --popover: #0e1018;
-  --popover-foreground: #e7e3da;
+	--popover: #0e1018;
+	--popover-foreground: #e7e3da;
 
-  /* SkillTrail dark primary */
-  --primary: #d85b2a;
+	/* SkillTrail dark primary */
+	--primary: #d85b2a;
 
-  /*
+	/*
    * IMPORTANT:
    * D85B2A is bright enough that dark text is
    * preferable to white for primary controls.
    */
-  --primary-foreground: #14171a;
+	--primary-foreground: #14171a;
 
-  --secondary: #171a22;
-  --secondary-foreground: #e7e3da;
+	--secondary: #171a22;
+	--secondary-foreground: #e7e3da;
 
-  --muted: #141720;
-  --muted-foreground: #9a9690;
+	--muted: #141720;
+	--muted-foreground: #9a9690;
 
-  --accent: #2a1a14;
-  --accent-foreground: #f0a17f;
+	--accent: #2a1a14;
+	--accent-foreground: #f0a17f;
 
-  --destructive: #e5484d;
+	--destructive: #e5484d;
 
-  --border: #1d2030;
-  --input: #272b35;
-  --ring: #d85b2a;
+	--border: #1d2030;
+	--input: #272b35;
+	--ring: #d85b2a;
 
-  /*
+	/*
    * Dark chart palette.
    * Still unmistakably SkillTrail orange,
    * but with enough variation to distinguish series.
    */
-  --chart-1: #d85b2a;
-  --chart-2: #f07a4a;
-  --chart-3: #f59b73;
-  --chart-4: #b44822;
-  --chart-5: #7f321a;
+	--chart-1: #d85b2a;
+	--chart-2: #f07a4a;
+	--chart-3: #f59b73;
+	--chart-4: #b44822;
+	--chart-5: #7f321a;
 
-  --sidebar: #0e1018;
-  --sidebar-foreground: #e7e3da;
+	--sidebar: #0e1018;
+	--sidebar-foreground: #e7e3da;
 
-  --sidebar-primary: #d85b2a;
-  --sidebar-primary-foreground: #14171a;
+	--sidebar-primary: #d85b2a;
+	--sidebar-primary-foreground: #14171a;
 
-  --sidebar-accent: #1a1716;
-  --sidebar-accent-foreground: #f0a17f;
+	--sidebar-accent: #1a1716;
+	--sidebar-accent-foreground: #f0a17f;
 
-  --sidebar-border: #1d2030;
-  --sidebar-ring: #d85b2a;
+	--sidebar-border: #1d2030;
+	--sidebar-ring: #d85b2a;
 
-  /* Explicit brand aliases */
-  --brand-primary: #d85b2a;
+	/* Explicit brand aliases */
+	--brand-primary: #d85b2a;
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
+	* {
+		@apply border-border outline-ring/50;
+	}
 
-  body {
-    @apply bg-background text-foreground;
-  }
+	body {
+		@apply bg-background text-foreground;
+	}
 
-  button:not(:disabled),
-  [role="button"]:not(:disabled) {
-    cursor: pointer;
-  }
+	button:not(:disabled),
+	[role="button"]:not(:disabled) {
+		cursor: pointer;
+	}
 }
 /*  Launching Page  */
 .reveal {
-  opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+	opacity: 0;
+	transform: translateY(22px);
+	transition:
+		opacity 0.8s ease,
+		transform 0.8s ease;
 }
 .reveal.in {
-  opacity: 1;
-  transform: translateY(0);
+	opacity: 1;
+	transform: translateY(0);
 }
 
 .trail-draw {
-  stroke-dasharray: 700;
-  stroke-dashoffset: 700;
-  animation: trail-draw 2s ease forwards 0.3s;
+	stroke-dasharray: 700;
+	stroke-dashoffset: 700;
+	animation: trail-draw 2s ease forwards 0.3s;
 }
 .node-appear {
-  opacity: 0;
-  animation: node-fade 0.4s ease forwards;
+	opacity: 0;
+	animation: node-fade 0.4s ease forwards;
 }
 
 .illustration-float {
-  animation: illustration-float 6s ease-in-out infinite;
-  will-change: transform;
+	animation: illustration-float 6s ease-in-out infinite;
+	will-change: transform;
 }
 
 @keyframes illustration-float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
+	0%,
+	100% {
+		transform: translateY(0);
+	}
 
-  50% {
-    transform: translateY(-7px);
-  }
+	50% {
+		transform: translateY(-7px);
+	}
 }
 @keyframes trail-draw {
-  to { stroke-dashoffset: 0; }
+	to {
+		stroke-dashoffset: 0;
+	}
 }
 @keyframes node-fade {
-  to { opacity: 1; }
+	to {
+		opacity: 1;
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
-  .trail-draw { animation: none; stroke-dashoffset: 0; }
-  .node-appear { animation: none; opacity: 1; }
-  .illustration-float {
-    animation: none;
-  }
+	.reveal {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+	.trail-draw {
+		animation: none;
+		stroke-dashoffset: 0;
+	}
+	.node-appear {
+		animation: none;
+		opacity: 1;
+	}
+	.illustration-float {
+		animation: none;
+	}
 }

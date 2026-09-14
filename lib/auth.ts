@@ -4,14 +4,14 @@ import { db } from "@/db"; // your drizzle instance
 import * as authSchema from "@/db/schema/auth-schema";
 
 export const auth = betterAuth({
-  database: drizzleAdapter(db, {
-    provider: "pg", // or "mysql", "sqlite"
-    schema: authSchema,
-  }),
-  advanced: {
-    database: {
-      joins: true,
-      generateId: "uuid",
-    },
-  },
+	database: drizzleAdapter(db, {
+		provider: "pg", // or "mysql", "sqlite"
+		schema: authSchema,
+	}),
+	advanced: {
+		database: {
+			joins: true,
+			generateId: "uuid",
+		},
+	},
 });

@@ -6,8 +6,13 @@ import { authRelations } from "./schema/auth-schema";
 // Playwright, Sharp, BullMQ, and the MCP TypeScript SDK are all built/tested
 // primarily against Node.
 export const db = drizzle(process.env.DATABASE_URL!, {
-  relations: { ...appRelations, ...authRelations },
+	relations: { ...appRelations, ...authRelations },
 });
-
-const result = await db.execute("select 1");
+try {
+    const result = await db.execute("select 1");
+    
+    console.log("result from db.execute in db.ts",result)
+} catch (error) {
+    console.log(error)
+}
 export type Database = typeof db;

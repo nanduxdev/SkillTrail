@@ -5,12 +5,12 @@ config({ path: ".env.local" });
 // so no `casing` option is needed here — what you see in the TS is exactly
 // what lands in Postgres.
 export default defineConfig({
-  dialect: "postgresql",
-  schema: "./db/schema/index.ts",
-  out: "./db/migrations",
-  dbCredentials: {
-    url: process.env.DATABASE_URL!,
-  },
-  strict: true,
-  verbose: true,
+	dialect: "postgresql",
+	schema: "./db/schema/index.ts",
+	out: "./db/migrations",
+	dbCredentials: {
+		url: process.env.DATABASE_URL!,
+	},
+	strict: true,
+	verbose: true,
 });

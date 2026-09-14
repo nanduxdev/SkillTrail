@@ -7,8 +7,8 @@ import {
 	uuid,
 } from "drizzle-orm/pg-core";
 import { draft } from "./composition";
-import { xThreadPost } from "./x";
 import { aiGenerationStatusEnum, aiOperationEnum } from "./enums";
+import { xThreadPost } from "./x";
 
 // Persisted AI proposal/version history, scoped to Draft (Schema Spec
 // §2.10). One table covers the entire review/undo/compare/restore lifecycle

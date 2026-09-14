@@ -1,17 +1,16 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
 import { useLenis } from "lenis/react";
-
-import { Hero } from "../components/marketing/Hero";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { z } from "zod";
 import {
 	HEADER_HEIGHT,
 	useLenisScrollTo,
 	useReveal,
 } from "@/hooks/marketingHooks";
-import Image from "next/image";
-import { z } from "zod";
 import { postEarlyAccess } from "@/lib/actions/early-access";
+import { Hero } from "../components/marketing/Hero";
 
 const logo = "/brand/skilltrail-logo.svg";
 const logoWhite = "/brand/skilltrail-logo-white.svg";
@@ -214,31 +213,31 @@ function Header() {
 				</Link>
 
 				<div className="hidden md:flex items-center gap-8 text-sm font-sans text-muted-foreground">
-					<a
-						href="#problem"
+					<button
+						type="button"
 						onClick={scrollTo("#problem")}
 						className="hover:text-foreground transition-colors duration-150"
 					>
 						The Problem
-					</a>
-					<a
-						href="#how-it-works"
+					</button>
+					<button
+						type="button"
 						onClick={scrollTo("#how-it-works")}
 						className="hover:text-foreground transition-colors duration-150"
 					>
 						How it works
-					</a>
-					<a
-						href="#why"
+					</button>
+					<button
+						type="button"
 						onClick={scrollTo("#why")}
 						className="hover:text-foreground transition-colors duration-150"
 					>
 						Why
-					</a>
+					</button>
 				</div>
 
-				<a
-					href="#join"
+				<button
+					type="button"
 					onClick={scrollTo("#join")}
 					style={{
 						fontFamily: "var(--f-sans)",
@@ -253,18 +252,18 @@ function Header() {
 						transition: "background 0.2s, color 0.2s",
 					}}
 					onMouseEnter={(e) => {
-						const el = e.currentTarget as HTMLAnchorElement;
+						const el = e.currentTarget as HTMLButtonElement;
 						el.style.background = "var(--c-orange)";
 						el.style.color = "#fff";
 					}}
 					onMouseLeave={(e) => {
-						const el = e.currentTarget as HTMLAnchorElement;
+						const el = e.currentTarget as HTMLButtonElement;
 						el.style.background = "transparent";
 						el.style.color = "var(--c-orange)";
 					}}
 				>
 					Join the first developers
-				</a>
+				</button>
 			</div>
 		</header>
 	);
@@ -683,7 +682,7 @@ function CTA() {
 					text: "Something went wrong. Please try again.",
 				});
 			}
-		} catch (err) {
+		} catch (_err) {
 			setMessage({ type: "error", text: "An unexpected error occurred." });
 		} finally {
 			setLoading(false);

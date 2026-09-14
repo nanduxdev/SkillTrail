@@ -1,3 +1,4 @@
+import { sql } from "drizzle-orm";
 import {
 	check,
 	index,
@@ -8,12 +9,11 @@ import {
 	timestamp,
 	uuid,
 } from "drizzle-orm/pg-core";
-import { sql } from "drizzle-orm";
 import { user } from "./auth-schema";
-import { media } from "./media";
-import { research } from "./research";
 import { discoveryItem } from "./discovery";
 import { contentOriginEnum, contentProcessingStatusEnum } from "./enums";
+import { media } from "./media";
+import { research } from "./research";
 
 export const content = pgTable(
 	"content",

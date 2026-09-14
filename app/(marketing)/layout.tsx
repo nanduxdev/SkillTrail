@@ -1,6 +1,6 @@
-import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { DM_Sans, Fraunces, JetBrains_Mono } from "next/font/google";
+import { cn } from "@/lib/utils";
 import "../globals.css";
 import { ReactLenis } from "lenis/react";
 

@@ -9,10 +9,10 @@ export const db = drizzle(process.env.DATABASE_URL!, {
 	relations: { ...appRelations, ...authRelations },
 });
 try {
-    const result = await db.execute("select 1");
-    
-    console.log("result from db.execute in db.ts",result)
+	const result = await db.execute("select 1");
+
+	console.log("result from db.execute in db.ts", result);
 } catch (error) {
-    console.log(error)
+	console.log(error);
 }
 export type Database = typeof db;

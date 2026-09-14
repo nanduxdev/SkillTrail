@@ -1,3 +1,4 @@
+import { sql } from "drizzle-orm";
 import {
 	bigint,
 	index,
@@ -9,11 +10,10 @@ import {
 	uniqueIndex,
 	uuid,
 } from "drizzle-orm/pg-core";
-import { sql } from "drizzle-orm";
 import { user } from "./auth-schema";
 import { draft } from "./composition";
-import { xThreadPost } from "./x";
 import { mediaKindEnum } from "./enums";
+import { xThreadPost } from "./x";
 
 // Reusable library asset. Binary lives in Cloudflare R2; this row is
 // metadata + storage reference only (Schema Spec §2.8).

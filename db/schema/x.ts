@@ -1,11 +1,11 @@
 import {
+	type AnyPgColumn,
 	pgTable,
 	smallint,
 	text,
 	timestamp,
 	uniqueIndex,
 	uuid,
-	type AnyPgColumn,
 } from "drizzle-orm/pg-core";
 import { draft } from "./composition";
 import { socialConnection } from "./social";

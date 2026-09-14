@@ -1,10 +1,9 @@
 // app/actions.ts
 "use server";
 
+import { z } from "zod";
 import { db } from "@/db";
 import { earlyAccess } from "@/db/schema";
-
-import { z } from "zod";
 
 const schema = z.object({
 	email: z.email(),

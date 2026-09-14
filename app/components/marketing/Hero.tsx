@@ -1,20 +1,18 @@
-import Link from "next/link";
 import {
 	ArrowRight,
 	BarChart3,
+	BookOpen,
+	Boxes,
+	CircleDot,
 	Code2,
 	Folder,
 	GitPullRequest,
 	Lightbulb,
 	Users,
-	BookOpen,
-	Boxes,
-	CircleDot,
 } from "lucide-react";
-
-import { Separator } from "@/components/ui/separator";
-
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 import { useLenisScrollTo, useReveal } from "@/hooks/marketingHooks";
 
 const sources = [
@@ -278,7 +276,7 @@ function DecorativeSquares() {
 		<>
 			{squares.map((position, index) => (
 				<span
-					key={index}
+					key={position}
 					className={[
 						"absolute size-5 rounded-[3px] bg-orange-100/80",
 						position,

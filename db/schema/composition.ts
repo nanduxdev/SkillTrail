@@ -1,4 +1,5 @@
 import {
+	type AnyPgColumn,
 	boolean,
 	index,
 	pgTable,
@@ -6,13 +7,12 @@ import {
 	timestamp,
 	uniqueIndex,
 	uuid,
-	type AnyPgColumn,
 } from "drizzle-orm/pg-core";
-import { angle, content } from "./content";
-import { xExternalPost } from "./x";
-import { publication } from "./publication";
 import { aiGeneration } from "./ai";
+import { angle, content } from "./content";
 import { platformEnum, xPostTypeEnum, xTargetKindEnum } from "./enums";
+import { publication } from "./publication";
+import { xExternalPost } from "./x";
 
 // One Content -> many Compositions. Regenerate = new ai_generation on the
 // same Composition; Change Angle = new Composition (Schema Spec §2.6).

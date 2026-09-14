@@ -1,3 +1,4 @@
+import { sql } from "drizzle-orm";
 import {
 	index,
 	integer,
@@ -7,15 +8,14 @@ import {
 	timestamp,
 	uuid,
 } from "drizzle-orm/pg-core";
-import { sql } from "drizzle-orm";
 import { user } from "./auth-schema";
 import { composition, draft } from "./composition";
-import { socialConnection } from "./social";
 import {
 	platformEnum,
 	publicationFailureReasonEnum,
 	publicationStatusEnum,
 } from "./enums";
+import { socialConnection } from "./social";
 
 // External publishing lifecycle/history — deliberately separate from Draft
 // (Schema Spec §2.9). userId is denormalized here (justified per §3 —

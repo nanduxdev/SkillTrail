@@ -131,7 +131,7 @@ Trigger.dev tasks execute outside the request/response lifecycle but use the sam
 | Object storage       | **Cloudflare R2**                   | Store uploaded files/images; database stores metadata/references.                                                                                                              |
 | Validation           | **Zod**                             | Shared runtime validation for inputs and AI structured output.                                                                                                                 |
 | Testing              | **Vitest**                          | Unit/integration testing.                                                                                                                                                      |
-| Lint/format          | **Biome**                           | Single formatting/linting tool.                                                                                                                                                |
+| Lint/format          | **prettier+eslint**                 | formatting+linting tool.                                                                                                                                                       |
 | Hosting              | **Vercel**                          | Next.js web application deployment.                                                                                                                                            |
 | Package management   | **Bun**                             | Single-package repository; no workspace/monorepo overhead.                                                                                                                     |
 
@@ -290,17 +290,17 @@ Conceptual interface:
 
 ```ts
 interface AiProvider {
-  understandContent(input: RawMaterial): Promise<ContentUnderstanding>;
+	understandContent(input: RawMaterial): Promise<ContentUnderstanding>;
 
-  generateAngles(input: ContentUnderstanding): Promise<Angle[]>;
+	generateAngles(input: ContentUnderstanding): Promise<Angle[]>;
 
-  generateDraft(input: DraftGenerationInput): Promise<GeneratedDraft>;
+	generateDraft(input: DraftGenerationInput): Promise<GeneratedDraft>;
 
-  editDraft(input: DraftEditInput): Promise<GeneratedDraft>;
+	editDraft(input: DraftEditInput): Promise<GeneratedDraft>;
 
-  researchTopic(input: ResearchInput): Promise<ResearchSynthesis>;
+	researchTopic(input: ResearchInput): Promise<ResearchSynthesis>;
 
-  understandImage(input: ImageInput): Promise<ImageUnderstanding>;
+	understandImage(input: ImageInput): Promise<ImageUnderstanding>;
 }
 ```
 
@@ -1453,7 +1453,8 @@ R2
 Trigger.dev
 Zod
 Vitest
-Biome
+eslint
+prettier
 ```
 
 Get authentication and empty dashboard working.

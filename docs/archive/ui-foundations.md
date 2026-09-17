@@ -2,12 +2,11 @@
 
 ## Purpose
 
-Document **how the visual system is implemented** — tokens, themes, and global behavior — primarily from `app/globals.css` and `public/brand/brand-verification.html`. Use `design-direction.md` for qualitative guidance.
+Document **how the visual system is implemented** — tokens, themes, and global behavior — primarily from `app/globals.css`. Use `design-direction.md` for qualitative guidance.
 
 **Labeling:**
 
 - **Defined in CSS** — explicit variable or rule in `globals.css`
-- **Brand reference** — `brand-verification.html`
 - **Observed** — used in components/pages but not tokenized
 - **Gap** — not implemented or inconsistent
 
@@ -25,76 +24,72 @@ There is **no centralized spacing scale** in CSS — spacing is implemented via 
 
 ### Brand Colors
 
-| Token / name | Value | Role | Source |
-| ------------ | ----- | ---- | ------ |
-| Light primary | `#B44822` | Buttons, links, ring, charts on light | `:root --primary`, `--brand-primary`, `--color-brand-light`, `--color-gold` |
-| Dark primary | `#D85B2A` | Buttons, ring, accents on dark | `.dark --primary`, `--brand-primary`, `--color-brand-dark`, `--color-gold-light` |
-| Gold dim (legacy) | `#8A3519` | Legacy alias | `--color-gold-dim` |
-
-**Brand reference (`brand-verification.html`):** `--orange`, `--dark-orange` match above.
+| Token / name      | Value     | Role                                  | Source                                                                           |
+| ----------------- | --------- | ------------------------------------- | -------------------------------------------------------------------------------- |
+| Light primary     | `#B44822` | Buttons, links, ring, charts on light | `:root --primary`, `--brand-primary`, `--color-brand-light`, `--color-gold`      |
+| Dark primary      | `#D85B2A` | Buttons, ring, accents on dark        | `.dark --primary`, `--brand-primary`, `--color-brand-dark`, `--color-gold-light` |
+| Gold dim (legacy) | `#8A3519` | Legacy alias                          | `--color-gold-dim`                                                               |
 
 ### Semantic Colors — Light (`:root`)
 
-| Token | Value |
-| ----- | ----- |
-| `--background` | `#F7F6F2` |
-| `--foreground` | `#14171A` |
-| `--card` | `#FFFFFF` |
-| `--card-foreground` | `#14171A` |
-| `--popover` | `#FFFFFF` |
-| `--popover-foreground` | `#14171A` |
-| `--primary` | `#B44822` |
-| `--primary-foreground` | `#FFFFFF` |
-| `--secondary` | `#EEECE5` |
+| Token                    | Value     |
+| ------------------------ | --------- |
+| `--background`           | `#F7F6F2` |
+| `--foreground`           | `#14171A` |
+| `--card`                 | `#FFFFFF` |
+| `--card-foreground`      | `#14171A` |
+| `--popover`              | `#FFFFFF` |
+| `--popover-foreground`   | `#14171A` |
+| `--primary`              | `#B44822` |
+| `--primary-foreground`   | `#FFFFFF` |
+| `--secondary`            | `#EEECE5` |
 | `--secondary-foreground` | `#383C41` |
-| `--muted` | `#F0EEE8` |
-| `--muted-foreground` | `#6F7378` |
-| `--accent` | `#F1E8E3` |
-| `--accent-foreground` | `#7E351E` |
-| `--destructive` | `#B42318` |
-| `--border` | `#DEDBD2` |
-| `--input` | `#D8D5CD` |
-| `--ring` | `#B44822` |
+| `--muted`                | `#F0EEE8` |
+| `--muted-foreground`     | `#6F7378` |
+| `--accent`               | `#F1E8E3` |
+| `--accent-foreground`    | `#7E351E` |
+| `--destructive`          | `#B42318` |
+| `--border`               | `#DEDBD2` |
+| `--input`                | `#D8D5CD` |
+| `--ring`                 | `#B44822` |
 
 **Chart palette (light):** `--chart-1` … `--chart-5` = `#B44822`, `#D85B2A`, `#E77A50`, `#963B1D`, `#6F2D18` (orange family — **Defined in CSS**)
 
 ### Semantic Colors — Dark (`.dark`)
 
-| Token | Value |
-| ----- | ----- |
-| `--background` | `#08090D` |
-| `--foreground` | `#E7E3DA` |
-| `--card` | `#0E1018` |
-| `--card-foreground` | `#E7E3DA` |
-| `--primary` | `#D85B2A` |
-| `--primary-foreground` | `#14171A` |
-| `--secondary` | `#171A22` |
+| Token                    | Value     |
+| ------------------------ | --------- |
+| `--background`           | `#08090D` |
+| `--foreground`           | `#E7E3DA` |
+| `--card`                 | `#0E1018` |
+| `--card-foreground`      | `#E7E3DA` |
+| `--primary`              | `#D85B2A` |
+| `--primary-foreground`   | `#14171A` |
+| `--secondary`            | `#171A22` |
 | `--secondary-foreground` | `#E7E3DA` |
-| `--muted` | `#141720` |
-| `--muted-foreground` | `#9A9690` |
-| `--accent` | `#2A1A14` |
-| `--accent-foreground` | `#F0A17F` |
-| `--destructive` | `#E5484D` |
-| `--border` | `#1D2030` |
-| `--input` | `#272B35` |
-| `--ring` | `#D85B2A` |
+| `--muted`                | `#141720` |
+| `--muted-foreground`     | `#9A9690` |
+| `--accent`               | `#2A1A14` |
+| `--accent-foreground`    | `#F0A17F` |
+| `--destructive`          | `#E5484D` |
+| `--border`               | `#1D2030` |
+| `--input`                | `#272B35` |
+| `--ring`                 | `#D85B2A` |
 
 **Defined in CSS comment:** Dark primary is bright enough that **dark text** on primary controls is intentional (`--primary-foreground: #14171A`).
-
-**Source discrepancy:** `brand-verification.html` dark mock primary button uses `color:#FFFFFF` on `#D85B2A`. Implementation prefers `#14171A` on primary in dark mode. Treat **globals.css** as product implementation; treat verification HTML as brand QA — reconcile before changing either.
 
 ### Application surface tokens (`@theme` block)
 
 These exist alongside shadcn tokens:
 
-| Token | Value | Notes |
-| ----- | ----- | ----- |
-| `--color-ground` | `#08090d` | **Defined in CSS** |
-| `--color-surface` | `#0e1018` | |
-| `--color-surface-2` | `#141720` | |
-| `--color-border` | `#1d2030` | Overridden in `@theme inline` by `--color-border: var(--border)` |
-| `--color-ivory` | `#e7e3da` | |
-| `--color-ivory-dim` | `#9a9690` | |
+| Token               | Value     | Notes                                                            |
+| ------------------- | --------- | ---------------------------------------------------------------- |
+| `--color-ground`    | `#08090d` | **Defined in CSS**                                               |
+| `--color-surface`   | `#0e1018` |                                                                  |
+| `--color-surface-2` | `#141720` |                                                                  |
+| `--color-border`    | `#1d2030` | Overridden in `@theme inline` by `--color-border: var(--border)` |
+| `--color-ivory`     | `#e7e3da` |                                                                  |
+| `--color-ivory-dim` | `#9a9690` |                                                                  |
 
 **Gap:** Raw `body` rule sets `background: var(--color-ground)` and `color: var(--color-ivory)` while `@layer base` applies `bg-background text-foreground`. Cascade/layer order determines what users see — verify in browser when theming.
 
@@ -118,13 +113,13 @@ Light `#DEDBD2`; dark `#1D2030`. Marketing page sometimes uses `--color-border` 
 
 ### Font Families
 
-| Role | CSS variable | Stack | Source |
-| ---- | ------------ | ----- | ------ |
-| Display | `--font-display` | `'Fraunces', Georgia, serif` | Google Fonts import in `globals.css` |
-| Sans / UI | `--font-sans` | `'DM Sans', sans-serif` | `globals.css` |
-| Mono | `--font-mono` | `'JetBrains Mono', monospace` | `globals.css` |
-| Serif (shadcn) | `--font-serif` | Set via Next font in `app/layout.tsx` | Merriweather → `--font-serif` |
-| Geist (loaded) | `--font-geist-sans`, `--font-geist-mono` | Next font in layouts | **Observed** in `app/layout.tsx`, `app/(marketing)/layout.tsx` |
+| Role           | CSS variable                             | Stack                                 | Source                                                         |
+| -------------- | ---------------------------------------- | ------------------------------------- | -------------------------------------------------------------- |
+| Display        | `--font-display`                         | `'Fraunces', Georgia, serif`          | Google Fonts import in `globals.css`                           |
+| Sans / UI      | `--font-sans`                            | `'DM Sans', sans-serif`               | `globals.css`                                                  |
+| Mono           | `--font-mono`                            | `'JetBrains Mono', monospace`         | `globals.css`                                                  |
+| Serif (shadcn) | `--font-serif`                           | Set via Next font in `app/layout.tsx` | Merriweather → `--font-serif`                                  |
+| Geist (loaded) | `--font-geist-sans`, `--font-geist-mono` | Next font in layouts                  | **Observed** in `app/layout.tsx`, `app/(marketing)/layout.tsx` |
 
 **Fraunces weights imported:** 300, 400, 600, 700 (+ italics). **DM Sans:** 300, 400, 500. **JetBrains Mono:** 400, 500.
 
@@ -132,8 +127,7 @@ Light `#DEDBD2`; dark `#1D2030`. Marketing page sometimes uses `--color-border` 
 
 1. `globals.css` sets `body { font-family: var(--font-sans); }` but `html { @apply font-serif; }` in `@layer base` — default element font may be serif unless components set sans.
 2. `app/layout.tsx` loads **Geist** and **Merriweather**; marketing layout loads **Geist** only — neither loads Fraunces/DM Sans via Next (those come from CSS `@import`).
-3. Logo wordmark is **Poppins** outlined in SVG only (`brand-verification.html`) — not a UI font.
-
+3. Logo wordmark is **Poppins** outlined in SVG only (`public/brand/`) — not a UI font.
 
 ### Font Sizes
 
@@ -165,8 +159,6 @@ Fraunces and DM Sans weights as imported; button component uses `font-medium` (*
 
 **Gap:** No documented global `container` max-width token in `globals.css`.
 
-**Observed:** `brand-verification.html` `.board { max-width: 1180px; }`.
-
 ---
 
 ## Container Widths
@@ -185,16 +177,16 @@ Fraunces and DM Sans weights as imported; button component uses `font-medium` (*
 
 ## Radius
 
-| Token | Computation | Base |
-| ----- | ----------- | ---- |
-| `--radius` | `0.625rem` (10px) | `:root` |
-| `--radius-sm` | `calc(var(--radius) * 0.6)` | `@theme inline` |
-| `--radius-md` | `calc(var(--radius) * 0.8)` | |
-| `--radius-lg` | `var(--radius)` | |
-| `--radius-xl` | `calc(var(--radius) * 1.4)` | |
-| `--radius-2xl` | `calc(var(--radius) * 1.8)` | |
-| `--radius-3xl` | `calc(var(--radius) * 2.2)` | |
-| `--radius-4xl` | `calc(var(--radius) * 2.6)` | |
+| Token          | Computation                 | Base            |
+| -------------- | --------------------------- | --------------- |
+| `--radius`     | `0.625rem` (10px)           | `:root`         |
+| `--radius-sm`  | `calc(var(--radius) * 0.6)` | `@theme inline` |
+| `--radius-md`  | `calc(var(--radius) * 0.8)` |                 |
+| `--radius-lg`  | `var(--radius)`             |                 |
+| `--radius-xl`  | `calc(var(--radius) * 1.4)` |                 |
+| `--radius-2xl` | `calc(var(--radius) * 1.8)` |                 |
+| `--radius-3xl` | `calc(var(--radius) * 2.2)` |                 |
+| `--radius-4xl` | `calc(var(--radius) * 2.6)` |                 |
 
 **Observed:** shadcn `Button` uses `rounded-4xl` (very rounded). Verification mock buttons use `border-radius: 6px`.
 
@@ -261,8 +253,8 @@ Semantic `--card` / `--card-foreground` per theme.
 
 ```css
 ::selection {
-  background: var(--brand-primary);
-  color: var(--primary-foreground);
+	background: var(--brand-primary);
+	color: var(--primary-foreground);
 }
 ```
 
@@ -284,11 +276,10 @@ Uses theme-appropriate brand primary via `--brand-primary` on `:root` / `.dark`.
 
 **Not defined** as CSS variables.
 
-| Context | Breakpoint | Source |
-| ------- | ---------- | ------ |
-| Brand verification | `820px` | `brand-verification.html` |
-| Marketing page | `900px`, `560px` | `app/(marketing)/page.tsx` |
-| Design review | 375px, 768px, 1280px+ | `AGENTS.md` (QA targets) |
+| Context        | Breakpoint            | Source                     |
+| -------------- | --------------------- | -------------------------- |
+| Marketing page | `900px`, `560px`      | `app/(marketing)/page.tsx` |
+| Design review  | 375px, 768px, 1280px+ | `AGENTS.md` (QA targets)   |
 
 ---
 
@@ -340,13 +331,12 @@ Default semantic theme in `:root` is **light**; body also references dark `groun
 
 ## Known Exceptions
 
-| Location | Issue |
-| -------- | ----- |
-| `app/(marketing)/page.tsx` CommitMotif | Uses `rgba(201, 168, 76, …)` — legacy gold, not `#B44822` |
-| `app/(marketing)/page.tsx` | Hard-coded hex grays (e.g. `#5a5750`, `#232220`) alongside CSS variables |
-| `brand-verification.html` vs `globals.css` | Dark primary button text white in mock vs `#14171A` in CSS |
-| `body` in `globals.css` | `color-ground` / `ivory` vs `@layer base` `background` / `foreground` |
-| Duplicate layouts | `app/layout.tsx` vs `app/(marketing)/layout.tsx` with different font variables |
+| Location                               | Issue                                                                          |
+| -------------------------------------- | ------------------------------------------------------------------------------ |
+| `app/(marketing)/page.tsx` CommitMotif | Uses `rgba(201, 168, 76, …)` — legacy gold, not `#B44822`                      |
+| `app/(marketing)/page.tsx`             | Hard-coded hex grays (e.g. `#5a5750`, `#232220`) alongside CSS variables       |
+| `body` in `globals.css`                | `color-ground` / `ivory` vs `@layer base` `background` / `foreground`          |
+| Duplicate layouts                      | `app/layout.tsx` vs `app/(marketing)/layout.tsx` with different font variables |
 
 ---
 
@@ -362,10 +352,9 @@ Default semantic theme in `:root` is **light**; body also references dark `groun
 
 ## Source Files
 
-| File | Role |
-| ---- | ---- |
-| `app/globals.css` | Tokens, themes, base styles |
-| `public/brand/brand-verification.html` | Brand color names and UI verification |
-| `components/ui/button.tsx` | Primary button implementation |
-| `components.json` | shadcn configuration |
-| `app/layout.tsx` / `app/(marketing)/layout.tsx` | Font loading |
+| File                                            | Role                          |
+| ----------------------------------------------- | ----------------------------- |
+| `app/globals.css`                               | Tokens, themes, base styles   |
+| `components/ui/button.tsx`                      | Primary button implementation |
+| `components.json`                               | shadcn configuration          |
+| `app/layout.tsx` / `app/(marketing)/layout.tsx` | Font loading                  |

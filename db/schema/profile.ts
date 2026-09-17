@@ -43,7 +43,7 @@ export const applicationProfile = pgTable("application_profile", {
 
 // Suggested + custom technologies share one table (Schema Spec §2.2).
 // A custom entry a user types becomes a de-duplicated, globally visible
-// suggestion for everyone afterward — see the [ASSUMPTION] flag in the spec.
+// suggestion for everyone afterward — confirmed product behavior (docs/product.md).
 export const technology = pgTable(
 	"technology",
 	{

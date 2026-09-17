@@ -10,7 +10,7 @@ export const experienceLevelEnum = pgEnum("experience_level", [
 	"senior",
 ]);
 
-// [ASSUMPTION] label sets — not locked upstream, confirm before shipping onboarding copy.
+// Finalized label sets — locked in docs/product.md.
 export const writingToneEnum = pgEnum("writing_tone", [
 	"casual",
 	"balanced",

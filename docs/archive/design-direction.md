@@ -26,7 +26,7 @@ sharing it
 building a recognizable trail
 ```
 
-Hierarchy and layout should answer: *where am I in that journey?* — not *which three SaaS features are for sale?*
+Hierarchy and layout should answer: _where am I in that journey?_ — not _which three SaaS features are for sale?_
 
 ---
 
@@ -44,8 +44,8 @@ Hierarchy and layout should answer: *where am I in that journey?* — not *which
 
 - Landing page uses **Fraunces / DM Sans / JetBrains Mono** via CSS variables and section-level inline `fontFamily`
 - **Commit-grid motif** on marketing page (gold-tinted cells) — **discrepancy:** cells use `rgba(201, 168, 76, …)` (legacy gold), not approved `#B44822` / `#D85B2A` (see `ui-foundations.md` Known Exceptions)
-- Section labels with mono uppercase tracking and horizontal rules echo verification HTML’s section-label pattern
-- `brand-verification.html` mock UI uses **6px** button/card radii; shadcn `Button` uses **`rounded-4xl`** — radii are not unified yet
+- Section labels with mono uppercase tracking and horizontal rules
+- shadcn `Button` uses **`rounded-4xl`** — radii are not unified yet
 
 ---
 
@@ -72,7 +72,7 @@ Avoid: corporate polish, hype, playfulness for its own sake, futuristic “AI pr
 
 - Asymmetric layouts and intentional whitespace
 - Strong type scale contrast (display vs body)
-- Borders and rules that structure content (verification HTML uses 1px line dividers)
+- Borders and rules that structure content (1px line dividers)
 - Meaningful negative space
 - Product-specific motifs (trail, progress, commit-like density)
 
@@ -83,7 +83,7 @@ Avoid: corporate polish, hype, playfulness for its own sake, futuristic “AI pr
 - Floating gradient blobs and glass panels
 - Decorative code snippets with no meaning
 
-**Observed:** Marketing page uses custom breakpoints at **900px** and **560px**; verification board uses **820px** — not a single shared breakpoint system.
+**Observed:** Marketing page uses custom breakpoints at **900px** and **560px**.
 
 ---
 
@@ -120,15 +120,13 @@ Avoid: corporate polish, hype, playfulness for its own sake, futuristic “AI pr
 
 **Recommended:** Prefer flat or subtly bordered surfaces over glassmorphism.
 
-Verification mockups use sidebar `#FAF9F6` (light) and deep charcoal stacks (dark) — align new UI with semantic tokens where possible.
-
 ---
 
 ## Borders and Structure
 
-**Observed:** Light border token `#DEDBD2`; dark `#1D2030`; verification uses 1px rules for section separation.
+**Observed:** Light border token `#DEDBD2`; dark `#1D2030`.
 
-**Recommended:** Deliberate 1px borders and left-accent notes (verification “note” panels use 2px brand-colored left border) for callouts.
+**Recommended:** Deliberate 1px borders and left-accent notes (2px brand-colored left border) for callouts.
 
 ---
 
@@ -137,7 +135,7 @@ Verification mockups use sidebar `#FAF9F6` (light) and deep charcoal stacks (dar
 ### Trail / Progress Concept
 
 - Logo: two segments + terminal dot — **direction and completion**
-- Progress bars in verification UI: 6px height, pill caps, brand fill
+- Progress bars: 6px height, pill caps, brand fill
 - **Recommended:** Use trail/progress semantics for onboarding and publishing flow, not as generic loading decoration
 
 ### Developer-Native References
@@ -206,7 +204,7 @@ If the answer is “nothing,” strengthen hierarchy, motif, or tone — not mor
 
 **Recommended:** Mobile is a **recomposed** layout (hierarchy, type scale, density), not only stacked desktop columns.
 
-**Observed:** `brand-verification.html` collapses grids at 820px; marketing page at 900px / 560px.
+**Observed:** Marketing page uses custom breakpoints at **900px** and **560px**.
 
 ---
 

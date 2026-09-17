@@ -1,11 +1,11 @@
 # SkillTrail — Product Decision Record
+
 ## Core V1 Product Decisions
 
 **Status:** Draft v0.6 (supersedes v0.5 — Scheduling and AI undo/versioning decisions finalized)  
 **Purpose:** Canonical record of SkillTrail's core V1 product/schema decisions. This document contains the locked V1 baseline, finalized scheduling behavior (Part 20), finalized AI undo/versioning behavior (Part 21), and the remaining V1 schema-design work.
 **Date of Creation:** September 5, 2026  
 **Product:** SkillTrail (working product name; final naming to be decided later)
-
 
 ---
 
@@ -685,9 +685,11 @@ Content
 Options:
 
 ### A
+
 Attachment belongs permanently to Content.
 
 ### B
+
 User has a reusable media library.
 
 ### User answer
@@ -1413,12 +1415,14 @@ The user specifically clarified that this matters for quote posts because they w
 Platform-specific previews are required for:
 
 #### X
+
 - normal post
 - reply
 - quote post
 - thread
 
 #### LinkedIn
+
 - normal post
 
 The preview should simulate the platform presentation for the currently locked post types.
@@ -1447,13 +1451,13 @@ Post 3
 
 Therefore:
 
-| Concept | Meaning |
-|---|---|
-| Standalone post | Independent X post |
-| Reply | New X post replying to another X post |
-| Self-reply | Replying to your own X post |
-| Thread | Multiple X posts chained together through replies |
-| Quote post | New X post that quotes/embeds another post |
+| Concept         | Meaning                                           |
+| --------------- | ------------------------------------------------- |
+| Standalone post | Independent X post                                |
+| Reply           | New X post replying to another X post             |
+| Self-reply      | Replying to your own X post                       |
+| Thread          | Multiple X posts chained together through replies |
+| Quote post      | New X post that quotes/embeds another post        |
 
 ### Locked SkillTrail rule
 
@@ -1589,9 +1593,11 @@ Underlying draft/content remains intact.
 The distinction discussed was:
 
 ### Option A
+
 Refresh when the user opens Content/History.
 
 ### Option B
+
 Refresh when the user interacts with that publication.
 
 ### User clarification
@@ -2070,7 +2076,6 @@ These decisions imply that the eventual schema must be able to represent:
 These are schema implications, not a commitment to specific table names or column names yet.
 
 ---
-
 
 ---
 
@@ -2733,28 +2738,28 @@ Changes to the mutable Draft do not silently mutate an approved scheduled snapsh
 
 # 20. Final Decision Summary
 
-| Area | Final decision |
-|---|---|
-| AI undo | Undo the specific AI operation |
-| Manual edit undo | Not a V1 feature |
-| AI generation history | Yes, V1 |
-| History scope | Per draft |
-| Individual AI-generation deletion | No |
-| Draft/content deletion | Deletes associated AI generations |
-| AI review | Explicit acceptance/rejection |
-| Manual editing while AI proposal pending | Not allowed |
-| Accepted AI versions | Yes |
-| Rejected AI generations | Retained in history |
-| Compare AI versions | Yes |
-| Restore older AI version | Yes |
-| Restore confirmation | Required |
-| Newer history after restore | Preserved |
-| Older composition generation | Viewable; restore requires new composition |
-| Immediate undo/redo UI | Supported during AI review flow |
-| Undo after acceptance | Disappears |
-| Scheduling with pending AI proposal | Not allowed |
-| Scheduling without AI | Allowed |
-| Scheduled snapshot mutation | Never silent |
+| Area                                     | Final decision                             |
+| ---------------------------------------- | ------------------------------------------ |
+| AI undo                                  | Undo the specific AI operation             |
+| Manual edit undo                         | Not a V1 feature                           |
+| AI generation history                    | Yes, V1                                    |
+| History scope                            | Per draft                                  |
+| Individual AI-generation deletion        | No                                         |
+| Draft/content deletion                   | Deletes associated AI generations          |
+| AI review                                | Explicit acceptance/rejection              |
+| Manual editing while AI proposal pending | Not allowed                                |
+| Accepted AI versions                     | Yes                                        |
+| Rejected AI generations                  | Retained in history                        |
+| Compare AI versions                      | Yes                                        |
+| Restore older AI version                 | Yes                                        |
+| Restore confirmation                     | Required                                   |
+| Newer history after restore              | Preserved                                  |
+| Older composition generation             | Viewable; restore requires new composition |
+| Immediate undo/redo UI                   | Supported during AI review flow            |
+| Undo after acceptance                    | Disappears                                 |
+| Scheduling with pending AI proposal      | Not allowed                                |
+| Scheduling without AI                    | Allowed                                    |
+| Scheduled snapshot mutation              | Never silent                               |
 
 ---
 
@@ -2976,31 +2981,37 @@ The future `SkillTrail-domain-schema-spec.md` will translate these decisions int
 These are important so future schema work does not accidentally use an outdated decision.
 
 ### Old idea
+
 > Attachments permanently belong to Content.
 
 **Superseded by Q13/Q22/Q23.**
 
 ### Final
+
 > Reusable media library with separate context-media and post-media relationships.
 
 ---
 
 ### Old idea
+
 > X thread might simply be another way to represent multiple posts.
 
 **Clarified by Q33.**
 
 ### Final
+
 > A thread is a chain of normal X posts connected through self-replies.
 
 ---
 
 ### Old idea
+
 > Deleting a publication could mean deleting local SkillTrail data.
 
 **Clarified by Q39.**
 
 ### Final
+
 > External deletion and local content deletion are separate operations.
 
 ---

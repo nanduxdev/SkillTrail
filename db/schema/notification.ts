@@ -51,6 +51,9 @@ export const notificationPreference = pgTable("notification_preference", {
 	lastReminderSentAt: timestamp("last_reminder_sent_at", {
 		withTimezone: true,
 	}),
+	marketingEmailsEnabled: boolean("marketing_emails_enabled")
+		.notNull()
+		.default(false),
 	lastReminderForActivityAt: timestamp("last_reminder_for_activity_at", {
 		withTimezone: true,
 	}),

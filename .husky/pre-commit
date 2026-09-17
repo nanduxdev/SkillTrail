@@ -1,2 +1,2 @@
 bun test
-bunx @biomejs/biome check --staged --write --no-errors-on-unmatched
+bunx lint-staged

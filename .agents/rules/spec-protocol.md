@@ -1,0 +1,17 @@
+---
+trigger: manual
+---
+
+description: SkillTrail spec-driven development protocol
+
+Before any feature or bugfix work, read `.specs/WORKFLOW.md` in full and follow it.
+Do not skip steps or invent schema, routes, or config not present in `db/schema/*.ts`,
+`db/relations.ts`, or provided context. Respect domain invariants in `docs/domain.md`.
+
+Features: before implementation, confirm `.specs/features/<slug>/` has `requirements.md`,
+closed `analysis.md`, `design.md` (Schema Impact resolved), and `tasks.md`. If any are missing
+or gates are open, stop and complete the protocol first.
+
+Bugfixes: follow Step 5 in `.specs/WORKFLOW.md` under `.specs/bugfixes/<slug>/`.
+
+Use Plan Mode to confirm scope before executing Step 4 tasks.

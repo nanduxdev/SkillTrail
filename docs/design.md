@@ -1,6 +1,10 @@
 # SkillTrail — Design
 
-Durable design principles for SkillTrail's visual identity, voice, and UX. For token-level implementation details (CSS variables and their current values), see `app/globals.css` as the source of truth.
+Durable design principles for SkillTrail's visual identity, voice, and UX.
+
+**This file does not store color numbers, hex codes, or oklch literals.** During active development, values change in code first. For every token name and its current value, read **`app/globals.css`** — that file is the only source of truth for the palette, radii, fonts, chart scale, sidebar tokens, and launching-page aliases.
+
+When implementing or reviewing UI, use semantic Tailwind/shadcn classes backed by those variables (e.g. `bg-background`, `text-primary`, `border-border`), or `var(--…)` in custom CSS — never duplicate palette values in components or in this doc.
 
 ---
 
@@ -19,30 +23,24 @@ Layout and hierarchy answer: _Where am I in that journey?_ — not _which three 
 
 ## Visual Identity
 
-**Brand primary (oklch):**
+**Character (qualitative):** Warm, editorial neutrals with an amber-orange primary — readable on light paper-like surfaces and on a deep warm dark theme. Charts and sidebar accents pull from the same warm scale as `--primary` (see `--chart-1` … `--chart-5` and `--sidebar-*` in `app/globals.css`).
 
-- Light surfaces: `oklch(0.555 0.163 48.998)` — CSS: `--primary` (warm amber-orange)
-- Dark surfaces: `oklch(0.473 0.137 46.201)` — CSS: `--primary` in `.dark` (deeper, richer orange-brown)
-- Chart accent scale: `oklch(0.879 0.169 91.605)` → `oklch(0.769 0.188 70.08)` → `oklch(0.666 0.179 58.318)` → `oklch(0.555 0.163 48.998)` → `oklch(0.473 0.137 46.201)`
+**Where tokens live in `app/globals.css`:**
 
-**Semantic token palette (from `globals.css`):**
+| Area                                 | What to look for                                                                                                                                                                             |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **App shell (shadcn / Tailwind v4)** | `:root` and `.dark` — `--background`, `--foreground`, `--primary`, `--muted`, `--border`, `--card`, `--destructive`, `--ring`, `--radius`, etc.                                              |
+| **Theme bridge**                     | `@theme inline` — maps CSS variables to Tailwind color/radius utilities (`--color-primary`, `--radius-lg`, …)                                                                                |
+| **Launching page aliases**           | `:root` block labeled “Launching Page Design System” — `--c-paper`, `--c-ink`, `--c-charcoal`, `--c-orange`, `--c-line`, `--c-white`, `--c-muted` plus `--f-display`, `--f-sans`, `--f-mono` |
+| **Motion helpers**                   | `.reveal`, `.trail-draw`, `.illustration-float`, and `@media (prefers-reduced-motion: reduce)` at the bottom of the file                                                                     |
 
-| Token          | Light                       | Dark                                                    |
-| -------------- | --------------------------- | ------------------------------------------------------- |
-| `--background` | `oklch(1 0 0)` (white)      | `oklch(17.632% 0.00542 39.183)` (near-black, very warm) |
-| `--foreground` | `oklch(0.147 0.004 49.25)`  | `oklch(0.985 0.001 106.423)` (warm off-white)           |
-| `--card`       | `oklch(1 0 0)`              | `oklch(0.216 0.006 56.043)` (dark warm brown)           |
-| `--muted`      | `oklch(0.97 0.001 106.424)` | `oklch(0.268 0.007 34.298)`                             |
-| `--border`     | `oklch(0.923 0.003 48.717)` | `oklch(1 0 0 / 10%)`                                    |
-| `--input`      | `oklch(0.923 0.003 48.717)` | `oklch(1 0 0 / 15%)`                                    |
+Light vs dark: compare the same variable name under `:root` and `.dark`. Do not assume light values apply in dark mode.
 
-For token-level implementation, `globals.css` is the source of truth. The above is a navigational summary only.
+**Typography:** Display/body/mono families are defined in `app/globals.css` (`--f-display`, `--f-sans`, `--f-mono`; body uses `var(--font-sans)` from the Next.js font setup). Intent: Fraunces for display, DM Sans for UI body, JetBrains Mono for labels/metadata/code. The wordmark in SVG uses outlined Poppins — do not use Poppins as a product UI font.
 
-**Neutral palette:** paper `oklch(1 0 0)`, ink `oklch(0.147 0.004 49.25)`, warm off-white `oklch(0.985 0.001 106.423)`, muted text `oklch(0.553 0.013 58.071)`, dark card `oklch(0.216 0.006 56.043)`, dark background `oklch(17.632% 0.00542 39.183)`
+**Logo:** The trail mark (two strokes + terminal dot) represents direction and completion without cliché. SVG assets are canonical; raster PNGs are reference only. Paths: `public/brand/skilltrail-logo.svg` (light), `public/brand/skilltrail-logo-white.svg` (dark). Tint logo marks with theme tokens from `globals.css`, not one-off hex in components.
 
-**Typography:** Fraunces (display), DM Sans (body), JetBrains Mono (labels/metadata/code). The wordmark in SVG uses outlined Poppins — do not use Poppins as a product UI font.
-
-**Logo:** The trail mark (two strokes + terminal dot) represents direction and completion without cliché. SVG assets are canonical; raster PNGs are reference only. Asset paths: `public/brand/skilltrail-logo.svg` (light), `public/brand/skilltrail-logo-white.svg` (dark). SVG mark geometry is unchanged — only the color tokens referencing the mark have shifted to the new palette.
+**Verification:** `public/brand/brand-verification.html` — use when checking brand colors against the live token set.
 
 ---
 
@@ -115,7 +113,7 @@ Do not use:
 
 Motion communicates state, hierarchy, continuity, and feedback. Not decoration.
 
-- Respect `prefers-reduced-motion`. (Note: not yet globally implemented in CSS — gap to address.)
+- Respect `prefers-reduced-motion`. Launching-page motion classes in `app/globals.css` already disable animation under `prefers-reduced-motion`; extend that pattern when adding new motion.
 - Avoid: infinite particles, "AI sparkle" effects, animation for animation's sake.
 
 ---
@@ -139,7 +137,7 @@ Before considering a UI task complete, verify:
 - Distinctive visual identity (would pass the distinctiveness test)
 - Clear hierarchy, intentional typography, consistent spacing
 - No generic SaaS patterns
-- Colors from the approved palette
+- Colors only via tokens in `app/globals.css` (no ad-hoc hex/oklch in components)
 - Motion with semantic purpose
 - Keyboard navigation and visible focus states
 - Sufficient contrast
@@ -164,8 +162,13 @@ If the answer to most is no, revise it.
 
 ---
 
-## Source of Truth for Tokens
+## Source of Truth
 
-- **All semantic color tokens (primary, background, card, muted, border, etc.):** `app/globals.css`
-- **Logo SVG assets:** `public/brand/`
-- **Design direction (qualitative):** this file
+| Concern                                                                     | Location                                           |
+| --------------------------------------------------------------------------- | -------------------------------------------------- |
+| Token **values** (colors, radii, fonts, charts, sidebar, launching aliases) | `app/globals.css`                                  |
+| Token **usage** in React (Tailwind classes, shadcn components)              | `app/` and `components/` following variables above |
+| Logo SVG assets                                                             | `public/brand/`                                    |
+| Principles, voice, layout, gates (no literals)                              | this file                                          |
+
+If this document and `globals.css` disagree, **`globals.css` wins** until you deliberately change the palette in code and then update qualitative notes here (still without copying numeric values).

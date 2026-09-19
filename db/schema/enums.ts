@@ -44,7 +44,6 @@ export const contentOriginEnum = pgEnum("content_origin", [
 	"discovery",
 ]);
 
-// [ASSUMPTION] see SkillTrail-Schema-Spec-v1.0.md §2.4 — not an upstream-locked entity/state.
 export const contentProcessingStatusEnum = pgEnum("content_processing_status", [
 	"raw",
 	"analyzing",

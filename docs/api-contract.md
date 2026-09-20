@@ -342,12 +342,10 @@ None.
   technologies: Array<{
     id: string;
     name: string;
-    isCustom: boolean;
   }>;
   interests: Array<{
     id: string;
     name: string;
-    isCustom: boolean;
   }>;
 }
 ```
@@ -375,9 +373,51 @@ The same `Profile` shape as `GET`.
 
 ### Technology/interest behavior
 
-Custom technology/interest entries are represented by the global `technology`/`interest` tables and linked through the user junction tables.
+Technologies and interests are pre-seeded globally. Users search and select from the catalog — no custom entries in V1. Selections are stored in the `user_technology` and `user_interest` junction tables.
 
-For technologies, a custom user-created name is de-duplicated case-insensitively and becomes globally available as a suggestion.
+Providing `technologyIds` or `interestIds` performs a **full replace** of the user's selections (delete all existing, insert new). Validation of all IDs against the catalog happens before any write.
+
+## `GET /api/v1/profile/technologies`
+
+**Auth:** Required
+
+### Accepts
+
+None.
+
+### Returns
+
+```ts
+{
+	items: Array<{
+		id: string;
+		name: string;
+	}>;
+}
+```
+
+Returns all pre-seeded technologies ordered alphabetically. The client handles search/filter.
+
+## `GET /api/v1/profile/interests`
+
+**Auth:** Required
+
+### Accepts
+
+None.
+
+### Returns
+
+```ts
+{
+	items: Array<{
+		id: string;
+		name: string;
+	}>;
+}
+```
+
+Returns all pre-seeded interests ordered alphabetically. The client handles search/filter.
 
 ---
 

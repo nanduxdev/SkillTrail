@@ -1,5 +1,5 @@
 ---
-description: Implement unchecked items from `.specs/features/<slug>/tasks.md` — code, unit/property tests per Step 6, then check off completed tasks. Confirm which task(s) if several are next.
+description: Step 5 — Implement unchecked items from `.specs/features/<slug>/tasks.md` — code, unit/property tests per Step 6, then check off completed tasks. Confirm which task(s) if several are next.
 ---
 
 Open .specs/features/<slug>/tasks.md. Confirm with me which

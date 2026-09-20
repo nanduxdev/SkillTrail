@@ -1,5 +1,5 @@
 ---
-description: Step 5 — Bugfix spec under `.specs/bugfixes/<slug>/analysis.md`, root-cause investigation, and fast-check property test (ask before adding fast-check). Not for new features.
+description: Step 6 — Bugfix spec under `.specs/bugfixes/<slug>/analysis.md`, root-cause investigation, and fast-check property test (ask before adding fast-check). Not for new features.
 ---
 
 Follow Step 5 of .specs/WORKFLOW.md. Ask me for reproduction steps if I

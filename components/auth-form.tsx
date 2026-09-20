@@ -226,7 +226,7 @@ export function AuthForm({ ...props }: React.ComponentProps<typeof Card>) {
 							<div className="relative">
 								{mode === "signin" ? (
 									<Input
-										id="signin-password"
+										id="password"
 										type={showPassword ? "text" : "password"}
 										placeholder="Enter your password"
 										required
@@ -237,7 +237,7 @@ export function AuthForm({ ...props }: React.ComponentProps<typeof Card>) {
 									/>
 								) : (
 									<Input
-										id="signup-password"
+										id="password"
 										type={showPassword ? "text" : "password"}
 										placeholder="Enter a strong password"
 										required

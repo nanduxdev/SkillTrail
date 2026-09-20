@@ -1,4 +1,5 @@
 ---
+description: Apply whenever working on a SkillTrail feature, bugfix, or implementation task; enforce the `.specs/WORKFLOW.md` protocol and its requirements, analysis, design, task, and approval gates.
 alwaysApply: false
 ---
 Before any feature or bugfix work, read `.specs/WORKFLOW.md` in full and follow it.

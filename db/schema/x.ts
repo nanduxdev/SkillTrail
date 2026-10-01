@@ -26,7 +26,8 @@ export const xThreadPost = pgTable(
 			.defaultNow(),
 		updatedAt: timestamp("updated_at", { withTimezone: true })
 			.notNull()
-			.defaultNow(),
+			.defaultNow()
+			.$onUpdate(() => new Date()),
 	},
 	(t) => [uniqueIndex("x_thread_post_position_idx").on(t.draftId, t.position)],
 );

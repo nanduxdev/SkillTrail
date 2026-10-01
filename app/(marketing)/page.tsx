@@ -9,7 +9,7 @@ import {
 	useLenisScrollTo,
 	useReveal,
 } from "@/hooks/marketingHooks";
-import { postEarlyAccessAction } from "@/lib/actions";
+import { joinEarlyAccess } from "@/features/early-access/actions";
 import { Hero } from "@/components/marketing/Hero";
 
 const logo = "/brand/skilltrail-logo.svg";
@@ -668,13 +668,13 @@ function CTA() {
 
 		setLoading(true);
 		try {
-			const res = await postEarlyAccessAction({ email });
-			if (res?.success) {
+			const res = await joinEarlyAccess({ email });
+			if (res.data?.joined) {
 				setDone(true);
-			} else if (res?.error === "ALREADY_SUBSCRIBED") {
+			} else if (res.validationErrors?.fieldErrors?.email?.[0]) {
 				setMessage({
-					type: "success",
-					text: "You are already signed up for early access 🚀",
+					type: "error",
+					text: res.validationErrors.fieldErrors.email[0],
 				});
 			} else {
 				setMessage({

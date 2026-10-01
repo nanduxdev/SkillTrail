@@ -38,7 +38,8 @@ export const applicationProfile = pgTable("application_profile", {
 		.defaultNow(),
 	updatedAt: timestamp("updated_at", { withTimezone: true })
 		.notNull()
-		.defaultNow(),
+		.defaultNow()
+		.$onUpdate(() => new Date()),
 });
 
 // Pre-seeded global technologies. Users search and select from this table.

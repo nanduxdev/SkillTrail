@@ -10,10 +10,16 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			"@": rootDir,
+			"next/headers": path.join(rootDir, "tests/mocks/next-headers.ts"),
 		},
 	},
 	test: {
 		environment: "node",
 		setupFiles: ["./tests/setup.ts"],
+		server: {
+			deps: {
+				inline: ["@next-safe-action/adapter-better-auth", "next-safe-action"],
+			},
+		},
 	},
 });

@@ -62,5 +62,6 @@ export const notificationPreference = pgTable("notification_preference", {
 		.defaultNow(),
 	updatedAt: timestamp("updated_at", { withTimezone: true })
 		.notNull()
-		.defaultNow(),
+		.defaultNow()
+		.$onUpdate(() => new Date()),
 });

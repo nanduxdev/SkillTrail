@@ -1,5 +1,5 @@
 ---
-trigger: model_decision
+trigger: manual
 description: Apply whenever working on a SkillTrail feature, bugfix, or implementation task; enforce the `.specs/WORKFLOW.md` protocol and its requirements, analysis, design, task, and approval gates.
 ---
 

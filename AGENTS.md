@@ -16,16 +16,15 @@ You are working with a **solo developer building SkillTrail for developers**. Yo
 
 ## Where Authoritative Information Lives
 
-| What you want to know                    | Where to look                          |
-| ---------------------------------------- | -------------------------------------- |
-| What SkillTrail is and product decisions | `docs/product.md`                      |
-| Domain concepts and invariants           | `docs/domain.md`                       |
-| Architecture decisions and stack         | `docs/architecture.md`                 |
-| Design principles and voice              | `docs/design.md`                       |
-| Schema implementation                    | `db/schema/*.ts`, `db/relations.ts`    |
-| Design tokens / CSS variables            | `app/globals.css`                      |
-| Brand assets                             | `public/brand/`                        |
-| Brand colors / verification              | `public/brand/brand-verification.html` |
+| What you want to know                    | Where to look                       |
+| ---------------------------------------- | ----------------------------------- |
+| What SkillTrail is and product decisions | `docs/product.md`                   |
+| Domain concepts and invariants           | `docs/domain.md`                    |
+| Architecture decisions and stack         | `docs/architecture.md`              |
+| Design principles and voice              | `docs/design.md`                    |
+| Schema implementation                    | `db/schema/*.ts`, `db/relations.ts` |
+| Design tokens / CSS variables            | `app/globals.css`                   |
+| Brand assets                             | `public/brand/`                     |
 
 Do not guess at product behavior, domain meaning, or design decisions. Read the relevant canonical doc first.
 

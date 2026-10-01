@@ -105,9 +105,9 @@ Every AI call that participates in the product must produce a generation record 
 
 ## Domain Layer Rule
 
-Domain/business logic stays outside UI components and Route Handlers.
+Domain/business logic stays outside UI components, Server Actions, and Route Handlers. Server Actions and remaining Route Handlers are thin adapters over `lib/domain`.
 
-Trigger.dev tasks call the same domain services rather than duplicating logic. The domain layer is the shared contract between the web application and background tasks.
+Trigger.dev tasks call the same domain services rather than duplicating logic, and must not invoke Server Actions or SkillTrail HTTP endpoints. The domain layer is the shared contract between the web application and background tasks.
 
 ---
 

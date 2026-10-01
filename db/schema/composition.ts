@@ -31,7 +31,8 @@ export const composition = pgTable(
 			.defaultNow(),
 		updatedAt: timestamp("updated_at", { withTimezone: true })
 			.notNull()
-			.defaultNow(),
+			.defaultNow()
+			.$onUpdate(() => new Date()),
 	},
 	(t) => [index("composition_content_idx").on(t.contentId)],
 );
@@ -87,7 +88,8 @@ export const draft = pgTable(
 			.defaultNow(),
 		updatedAt: timestamp("updated_at", { withTimezone: true })
 			.notNull()
-			.defaultNow(),
+			.defaultNow()
+			.$onUpdate(() => new Date()),
 	},
 	(t) => [
 		uniqueIndex("draft_composition_platform_idx").on(

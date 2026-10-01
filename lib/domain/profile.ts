@@ -7,7 +7,7 @@ import {
 	userInterest,
 	userTechnology,
 } from "../../db/schema/profile";
-import { validationError } from "../api/errors";
+import { validationError } from "../errors";
 import type { UpdateProfileInputType } from "../schemas/profile";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -83,22 +83,35 @@ export async function getProfileWithRelations(
 
 // ─── Catalog reads ────────────────────────────────────────────────────────────
 
-export async function listTechnologies(): Promise<
-	Array<{ id: string; name: string }>
-> {
-	return db
+function filterCatalog(
+	items: Array<{ id: string; name: string }>,
+	query?: string,
+): Array<{ id: string; name: string }> {
+	const needle = query?.trim().toLowerCase();
+	if (!needle) return items;
+	return items.filter((item) => item.name.toLowerCase().includes(needle));
+}
+
+export async function listTechnologies(
+	query?: string,
+): Promise<Array<{ id: string; name: string }>> {
+	const items = await db
 		.select({ id: technology.id, name: technology.name })
 		.from(technology)
 		.orderBy(asc(technology.name));
+
+	return filterCatalog(items, query);
 }
 
-export async function listInterests(): Promise<
-	Array<{ id: string; name: string }>
-> {
-	return db
+export async function listInterests(
+	query?: string,
+): Promise<Array<{ id: string; name: string }>> {
+	const items = await db
 		.select({ id: interest.id, name: interest.name })
 		.from(interest)
 		.orderBy(asc(interest.name));
+
+	return filterCatalog(items, query);
 }
 
 // ─── Update ───────────────────────────────────────────────────────────────────

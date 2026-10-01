@@ -40,7 +40,8 @@ export const discoveryItem = pgTable(
 			.defaultNow(),
 		updatedAt: timestamp("updated_at", { withTimezone: true })
 			.notNull()
-			.defaultNow(),
+			.defaultNow()
+			.$onUpdate(() => new Date()),
 	},
 	(t) => [index("discovery_item_category_idx").on(t.category, t.archivedAt)],
 );

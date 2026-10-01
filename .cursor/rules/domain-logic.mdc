@@ -1,0 +1,58 @@
+---
+alwaysApply: true
+---
+# Domain Logic Belongs in `lib/domain`
+
+Route Handlers are transport adapters, not domain/service layers.
+
+SkillTrail's architecture requires domain/business logic to stay outside Route Handlers. The domain layer is shared by the Next.js application and Trigger.dev tasks. Do not implement business logic directly inside `route.ts`.
+
+## Route Handler Responsibilities
+
+A Route Handler may:
+
+- Read the HTTP request.
+- Read route/query/path parameters.
+- Obtain the authenticated user/session context.
+- Parse and validate request input.
+- Call a domain service/use case in `lib/domain`.
+- Translate domain errors into appropriate HTTP responses.
+- Return the domain result as the HTTP response.
+- Handle HTTP-specific concerns such as status codes and headers.
+
+Keep the handler thin.
+
+## Do NOT Put This in Route Handlers
+
+Do not implement these directly in `route.ts`:
+
+- Database queries for domain entities.
+- Multi-table queries or relation traversal.
+- Domain/business rules.
+- Ownership logic.
+- Authorization rules beyond obtaining the authenticated identity and passing it to the domain layer.
+- Defaulting domain state.
+- Domain response shaping.
+- Entity orchestration.
+- Create/update/delete workflows.
+- Cross-entity validation.
+- State-transition rules.
+- AI orchestration.
+- Publication/scheduling rules.
+- Draft/Composition rules.
+- Profile/application-domain logic.
+- Logic that Trigger.dev tasks may also need.
+
+If a Route Handler starts deciding *what SkillTrail should do*, that decision belongs in `lib/domain`.
+
+## Required Pattern
+
+Prefer:
+
+```ts
+export const GET = (request: Request) =>
+  withApiHandler(request, async (ctx) => {
+    return getApplicationProfile({
+      userId: ctx.userId,
+    });
+  });

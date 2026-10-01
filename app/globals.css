@@ -5,36 +5,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@theme {
-	/* Typography */
-	--font-display: var(--font-display);
-	--font-sans: var(--font-sans);
-	--font-mono: var(--font-mono);
-
-	/* SkillTrail brand */
-	--color-brand-light: #b44822;
-	--color-brand-dark: #d85b2a;
-
-	/* Application surfaces */
-	--color-ground: #08090d;
-	--color-surface: #0e1018;
-	--color-surface-2: #141720;
-	--color-border: #1d2030;
-
-	/* Brand-neutral text */
-	--color-ivory: #e7e3da;
-	--color-ivory-dim: #9a9690;
-
-	/*
-   * Legacy aliases.
-   * Keep these temporarily if existing components use
-   * text-gold / bg-gold / border-gold etc.
-   */
-	--color-gold: #b44822;
-	--color-gold-light: #d85b2a;
-	--color-gold-dim: #8a3519;
-}
-
 html,
 body,
 #root {
@@ -47,13 +17,11 @@ body,
 
 body {
 	font-family: var(--font-sans);
-	background: var(--color-ground);
-	color: var(--color-ivory);
 	-webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-	background: var(--brand-primary);
+	background: var(--primary);
 	color: var(--primary-foreground);
 }
 
@@ -72,12 +40,13 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: var(--brand-primary);
+	background: var(--primary);
 }
 
 @theme inline {
-	--font-heading: var(--font-serif);
-	--font-serif: var(--font-serif);
+	/* font-heading maps to Fraunces (the display face), used by CardTitle etc. */
+	--font-heading: var(--font-display);
+	--font-serif: var(--font-display);
 
 	--color-sidebar-ring: var(--sidebar-ring);
 	--color-sidebar-border: var(--sidebar-border);
@@ -138,132 +107,85 @@ body {
 	--f-sans: "DM Sans", sans-serif;
 	--f-mono: "JetBrains Mono", monospace;
 
-	/* =========================
-     SkillTrail — Light Mode
-     ========================= */
+	--card: oklch(1 0 0);
+	--card-foreground: oklch(0.147 0.004 49.25);
 
-	--background: #f7f6f2;
-	--foreground: #14171a;
+	--popover: oklch(1 0 0);
+	--popover-foreground: oklch(0.147 0.004 49.25);
 
-	--card: #ffffff;
-	--card-foreground: #14171a;
+	--primary: oklch(0.555 0.163 48.998);
+	--primary-foreground: oklch(0.987 0.022 95.277);
 
-	--popover: #ffffff;
-	--popover-foreground: #14171a;
+	--secondary: oklch(0.967 0.001 286.375);
+	--secondary-foreground: oklch(0.21 0.006 285.885);
 
-	/* SkillTrail light primary */
-	--primary: #b44822;
-	--primary-foreground: #ffffff;
+	--muted: oklch(0.97 0.001 106.424);
+	--muted-foreground: oklch(0.553 0.013 58.071);
 
-	--secondary: #eeece5;
-	--secondary-foreground: #383c41;
+	--accent: oklch(0.97 0.001 106.424);
+	--accent-foreground: oklch(0.216 0.006 56.043);
 
-	--muted: #f0eee8;
-	--muted-foreground: #6f7378;
+	--destructive: oklch(0.577 0.245 27.325);
 
-	--accent: #f1e8e3;
-	--accent-foreground: #7e351e;
+	--border: oklch(0.923 0.003 48.717);
+	--input: oklch(0.923 0.003 48.717);
+	--ring: oklch(0.709 0.01 56.259);
 
-	--destructive: #b42318;
-
-	--border: #dedbd2;
-	--input: #d8d5cd;
-	--ring: #b44822;
-
-	/*
-   * SkillTrail chart palette.
-   *
-   * Same brand hue, different luminance/saturation,
-   * rather than unrelated yellow/green/blue colors.
-   */
-	--chart-1: #b44822;
-	--chart-2: #d85b2a;
-	--chart-3: #e77a50;
-	--chart-4: #963b1d;
-	--chart-5: #6f2d18;
+	--chart-1: oklch(0.879 0.169 91.605);
+	--chart-2: oklch(0.769 0.188 70.08);
+	--chart-3: oklch(0.666 0.179 58.318);
+	--chart-4: oklch(0.555 0.163 48.998);
+	--chart-5: oklch(0.473 0.137 46.201);
 
 	--radius: 0.625rem;
 
-	--sidebar: #faf9f6;
-	--sidebar-foreground: #383c41;
+	--sidebar: oklch(0.985 0.001 106.423);
+	--sidebar-foreground: oklch(0.147 0.004 49.25);
 
-	--sidebar-primary: #b44822;
-	--sidebar-primary-foreground: #ffffff;
+	--sidebar-primary: oklch(0.666 0.179 58.318);
+	--sidebar-primary-foreground: oklch(0.987 0.022 95.277);
 
-	--sidebar-accent: #f1e8e3;
-	--sidebar-accent-foreground: #7e351e;
+	--sidebar-accent: oklch(0.97 0.001 106.424);
+	--sidebar-accent-foreground: oklch(0.216 0.006 56.043);
 
-	--sidebar-border: #dedbd2;
-	--sidebar-ring: #b44822;
-
-	/* Explicit brand aliases */
-	--brand-primary: #b44822;
+	--sidebar-border: oklch(0.923 0.003 48.717);
+	--sidebar-ring: oklch(0.709 0.01 56.259);
+	--background: oklch(1 0 0);
+	--foreground: oklch(0.147 0.004 49.25);
 }
 
 .dark {
-	/* =========================
-     SkillTrail — Dark Mode
-     ========================= */
-
-	--background: #08090d;
-	--foreground: #e7e3da;
-
-	--card: #0e1018;
-	--card-foreground: #e7e3da;
-
-	--popover: #0e1018;
-	--popover-foreground: #e7e3da;
-
-	/* SkillTrail dark primary */
-	--primary: #d85b2a;
-
-	/*
-   * IMPORTANT:
-   * D85B2A is bright enough that dark text is
-   * preferable to white for primary controls.
-   */
-	--primary-foreground: #14171a;
-
-	--secondary: #171a22;
-	--secondary-foreground: #e7e3da;
-
-	--muted: #141720;
-	--muted-foreground: #9a9690;
-
-	--accent: #2a1a14;
-	--accent-foreground: #f0a17f;
-
-	--destructive: #e5484d;
-
-	--border: #1d2030;
-	--input: #272b35;
-	--ring: #d85b2a;
-
-	/*
-   * Dark chart palette.
-   * Still unmistakably SkillTrail orange,
-   * but with enough variation to distinguish series.
-   */
-	--chart-1: #d85b2a;
-	--chart-2: #f07a4a;
-	--chart-3: #f59b73;
-	--chart-4: #b44822;
-	--chart-5: #7f321a;
-
-	--sidebar: #0e1018;
-	--sidebar-foreground: #e7e3da;
-
-	--sidebar-primary: #d85b2a;
-	--sidebar-primary-foreground: #14171a;
-
-	--sidebar-accent: #1a1716;
-	--sidebar-accent-foreground: #f0a17f;
-
-	--sidebar-border: #1d2030;
-	--sidebar-ring: #d85b2a;
-
-	/* Explicit brand aliases */
-	--brand-primary: #d85b2a;
+	--background: oklch(17.632% 0.00542 39.183);
+	--foreground: oklch(0.985 0.001 106.423);
+	--card: oklch(0.216 0.006 56.043);
+	--card-foreground: oklch(0.985 0.001 106.423);
+	--popover: oklch(0.216 0.006 56.043);
+	--popover-foreground: oklch(0.985 0.001 106.423);
+	--primary: oklch(53.444% 0.13442 48.425);
+	--primary-foreground: oklch(0.987 0.022 95.277);
+	--secondary: oklch(0.274 0.006 286.033);
+	--secondary-foreground: oklch(0.985 0 0);
+	--muted: oklch(0.268 0.007 34.298);
+	--muted-foreground: oklch(0.709 0.01 56.259);
+	--accent: oklch(0.268 0.007 34.298);
+	--accent-foreground: oklch(0.985 0.001 106.423);
+	--destructive: oklch(0.704 0.191 22.216);
+	--border: oklch(1 0 0 / 10%);
+	--input: oklch(1 0 0 / 15%);
+	--ring: oklch(0.553 0.013 58.071);
+	--chart-1: oklch(0.879 0.169 91.605);
+	--chart-2: oklch(0.769 0.188 70.08);
+	--chart-3: oklch(0.666 0.179 58.318);
+	--chart-4: oklch(0.555 0.163 48.998);
+	--chart-5: oklch(0.473 0.137 46.201);
+	--sidebar: oklch(0.216 0.006 56.043);
+	--sidebar-foreground: oklch(0.985 0.001 106.423);
+	--sidebar-primary: oklch(0.769 0.188 70.08);
+	--sidebar-primary-foreground: oklch(0.279 0.077 45.635);
+	--sidebar-accent: oklch(0.268 0.007 34.298);
+	--sidebar-accent-foreground: oklch(0.985 0.001 106.423);
+	--sidebar-border: oklch(1 0 0 / 10%);
+	--sidebar-ring: oklch(0.553 0.013 58.071);
 }
 
 @layer base {

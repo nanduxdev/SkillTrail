@@ -70,7 +70,8 @@ export const publication = pgTable(
 			.defaultNow(),
 		updatedAt: timestamp("updated_at", { withTimezone: true })
 			.notNull()
-			.defaultNow(),
+			.defaultNow()
+			.$onUpdate(() => new Date()),
 	},
 	(t) => [
 		index("publication_user_status_idx").on(t.userId, t.status),

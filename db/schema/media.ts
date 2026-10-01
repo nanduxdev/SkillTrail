@@ -37,7 +37,8 @@ export const media = pgTable(
 			.defaultNow(),
 		updatedAt: timestamp("updated_at", { withTimezone: true })
 			.notNull()
-			.defaultNow(),
+			.defaultNow()
+			.$onUpdate(() => new Date()),
 	},
 	(t) => [index("media_user_idx").on(t.userId)],
 );

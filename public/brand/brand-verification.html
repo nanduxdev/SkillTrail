@@ -7,6 +7,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
+    /* New oklch-based palette (applied via shadcn preset) */
+    --primary-light: oklch(0.555 0.163 48.998);
+    --primary-dark: oklch(0.473 0.137 46.201);
+    --bg-light: oklch(1 0 0);
+    --bg-dark: oklch(0.147 0.004 49.25);
+    --card-dark: oklch(0.216 0.006 56.043);
+    --muted-light: oklch(0.97 0.001 106.424);
+    --border-light: oklch(0.923 0.003 48.717);
+    --fg-light: oklch(0.147 0.004 49.25);
+    --fg-dark: oklch(0.985 0.001 106.423);
+    /* Legacy sRGB aliases (kept in @theme for backward compat) */
     --orange:#B44822;
     --dark-orange:#D85B2A;
     --charcoal:#383C41;
@@ -85,20 +96,21 @@
   .dark-brand svg{width:25px;height:25px;}
   .dark-nav{display:grid;gap:7px;}
   .dark-nav div{padding:9px 11px;border-radius:6px;font-size:11px;color:#B8BDC2;}
-  .dark-nav .selected{background:rgba(216,91,42,.18);color:#D85B2A;border:1px solid rgba(216,91,42,.25);}
+  .dark-nav .selected{background:oklch(0.473 0.137 46.201 / 18%);color:oklch(0.666 0.179 58.318);border:1px solid oklch(0.473 0.137 46.201 / 25%);}
   .dark-main{padding:22px;}
   .dark-main h3{font-size:20px;margin:0 0 6px;color:#FFFFFF;}
   .dark-main .muted{font-size:11px;color:#A8ADB2;margin-bottom:20px;}
   .dark-actions{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;}
-  .dark-button{border:0;border-radius:6px;padding:10px 14px;background:#D85B2A;color:#FFFFFF;font:600 11px Poppins,sans-serif;}
+  .dark-button{border:0;border-radius:6px;padding:10px 14px;background:oklch(0.555 0.163 48.998);color:#FFFFFF;font:600 11px Poppins,sans-serif;}
   .dark-button.secondary{background:#1C2227;border:1px solid #3A4147;color:#E2E5E8;}
   .dark-stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
   .dark-stat{background:#171C20;border:1px solid #2C3136;border-radius:6px;padding:14px;}
   .dark-stat .value{font-size:18px;font-weight:600;color:#FFFFFF;}
   .dark-stat .label{font-size:10px;color:#8F969C;margin-top:2px;}
   .dark-progress{height:6px;border-radius:99px;background:#30363B;margin-top:12px;overflow:hidden;}
-  .dark-progress span{display:block;width:62%;height:100%;background:#D85B2A;border-radius:99px;}
-  .dark-note{margin-top:16px;padding:12px 14px;border-left:2px solid #D85B2A;background:#171C20;color:#BFC4C9;font-size:11px;line-height:1.6;}
+  .dark-progress span{display:block;width:62%;height:100%;background:oklch(0.555 0.163 48.998);border-radius:99px;}
+  .dark-note{margin-top:16px;padding:12px 14px;border-left:2px solid oklch(0.555 0.163 48.998);background:#171C20;color:#BFC4C9;font-size:11px;line-height:1.6;}
+  .dark-browser-tab.active{background:#242A30;color:#FFFFFF;border-color:oklch(0.555 0.163 48.998);}
   @media (max-width:820px){
     .theme-board,.theme-token-row{grid-template-columns:1fr;}
     .dark-ui{grid-template-columns:1fr;}
@@ -114,20 +126,20 @@
   .light-brand svg{width:25px;height:25px;}
   .light-nav{display:grid;gap:7px;}
   .light-nav div{padding:9px 11px;border-radius:6px;font-size:11px;color:#5B5F64;}
-  .light-nav .selected{background:rgba(180,72,34,.10);color:#B44822;border:1px solid rgba(180,72,34,.18);}
+  .light-nav .selected{background:oklch(0.555 0.163 48.998 / 10%);color:oklch(0.555 0.163 48.998);border:1px solid oklch(0.555 0.163 48.998 / 18%);}
   .light-main{padding:22px;}
   .light-main h3{font-size:20px;margin:0 0 6px;color:#14171A;}
   .light-main .muted{font-size:11px;color:#73777C;margin-bottom:20px;}
   .light-actions{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;}
-  .light-button{border:0;border-radius:6px;padding:10px 14px;background:#B44822;color:#FFFFFF;font:600 11px Poppins,sans-serif;}
+  .light-button{border:0;border-radius:6px;padding:10px 14px;background:oklch(0.555 0.163 48.998);color:#FFFFFF;font:600 11px Poppins,sans-serif;}
   .light-button.secondary{background:#FFFFFF;border:1px solid #D6D2C9;color:#383C41;}
   .light-stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
   .light-stat{background:#F7F6F2;border:1px solid #DEDBD2;border-radius:6px;padding:14px;}
   .light-stat .value{font-size:18px;font-weight:600;color:#14171A;}
   .light-stat .label{font-size:10px;color:#8A8D90;margin-top:2px;}
   .light-progress{height:6px;border-radius:99px;background:#E3E0D8;margin-top:12px;overflow:hidden;}
-  .light-progress span{display:block;width:62%;height:100%;background:#B44822;border-radius:99px;}
-  .light-note{margin-top:16px;padding:12px 14px;border-left:2px solid #B44822;background:#F7F6F2;color:#5B5F64;font-size:11px;line-height:1.6;}
+  .light-progress span{display:block;width:62%;height:100%;background:oklch(0.555 0.163 48.998);border-radius:99px;}
+  .light-note{margin-top:16px;padding:12px 14px;border-left:2px solid oklch(0.555 0.163 48.998);background:#F7F6F2;color:#5B5F64;font-size:11px;line-height:1.6;}
   @media (max-width:820px){
     .light-ui{grid-template-columns:1fr;}
     .light-sidebar{border-right:0;border-bottom:1px solid #DEDBD2;}
@@ -251,32 +263,40 @@
     <p class="section-label">Light &amp; dark mode primary</p>
     <div class="theme-board">
       <div class="theme-card light-theme">
-        <h3>Light mode — existing primary</h3>
-        <p>Brand orange remains unchanged.</p>
+        <h3>Light mode primary</h3>
+        <p>New oklch-based warm amber-orange. Replaces legacy #B44822.</p>
         <div class="theme-mark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="28.45 36.42 705.12 534.94">
-<line x1="106.39" y1="493.42" x2="346.03" y2="239.84" stroke="#D85B2A" stroke-width="87.88" stroke-linecap="round"/>
-<line x1="346.59" y1="438.27" x2="560.05" y2="212.37" stroke="#D85B2A" stroke-width="87.85" stroke-linecap="round"/>
-<circle cx="649.57" cy="120.42" r="50.00" fill="#D85B2A"/>
+<line x1="106.39" y1="493.42" x2="346.03" y2="239.84" stroke="oklch(0.555 0.163 48.998)" stroke-width="87.88" stroke-linecap="round"/>
+<line x1="346.59" y1="438.27" x2="560.05" y2="212.37" stroke="oklch(0.555 0.163 48.998)" stroke-width="87.85" stroke-linecap="round"/>
+<circle cx="649.57" cy="120.42" r="50.00" fill="oklch(0.555 0.163 48.998)"/>
 </svg></div>
       </div>
       <div class="theme-card dark-theme">
-        <h3>Dark mode — finalized primary</h3>
-        <p>#D85B2A keeps the same brand character with higher luminance on dark surfaces.</p>
+        <h3>Dark mode primary</h3>
+        <p>oklch(0.473 0.137 46.201) — deeper, richer for dark surfaces and interactive accents.</p>
         <div class="theme-mark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="28.45 36.42 705.12 534.94">
-<line x1="106.39" y1="493.42" x2="346.03" y2="239.84" stroke="#D85B2A" stroke-width="87.88" stroke-linecap="round"/>
-<line x1="346.59" y1="438.27" x2="560.05" y2="212.37" stroke="#D85B2A" stroke-width="87.85" stroke-linecap="round"/>
-<circle cx="649.57" cy="120.42" r="50.00" fill="#D85B2A"/>
+<line x1="106.39" y1="493.42" x2="346.03" y2="239.84" stroke="oklch(0.555 0.163 48.998)" stroke-width="87.88" stroke-linecap="round"/>
+<line x1="346.59" y1="438.27" x2="560.05" y2="212.37" stroke="oklch(0.555 0.163 48.998)" stroke-width="87.85" stroke-linecap="round"/>
+<circle cx="649.57" cy="120.42" r="50.00" fill="oklch(0.555 0.163 48.998)"/>
 </svg></div>
       </div>
     </div>
     <div class="theme-token-row">
       <div class="theme-token">
+        <div class="theme-swatch" style="background:oklch(0.555 0.163 48.998)"></div>
+        <div><strong>Light --primary</strong><span>oklch(0.555 0.163 48.998) · buttons · links · accents</span></div>
+      </div>
+      <div class="theme-token">
+        <div class="theme-swatch" style="background:oklch(0.473 0.137 46.201)"></div>
+        <div><strong>Dark --primary</strong><span>oklch(0.473 0.137 46.201) · buttons · active states · accents</span></div>
+      </div>
+      <div class="theme-token">
         <div class="theme-swatch" style="background:#B44822"></div>
-        <div><strong>Light primary</strong><span>#B44822 · buttons · links · accents</span></div>
+        <div><strong>#B44822</strong><span>sRGB reference value for the light primary hue family (not a live CSS token)</span></div>
       </div>
       <div class="theme-token">
         <div class="theme-swatch" style="background:#D85B2A"></div>
-        <div><strong>Dark primary</strong><span>#D85B2A · buttons · active states · accents</span></div>
+        <div><strong>#D85B2A</strong><span>sRGB reference value for the dark primary hue family (not a live CSS token)</span></div>
       </div>
     </div>
   </section>
@@ -308,7 +328,7 @@
           <div class="light-stat"><div class="value">8</div><div class="label">Published</div></div>
           <div class="light-stat"><div class="value">62%</div><div class="label">Progress</div><div class="light-progress"><span></span></div></div>
         </div>
-        <div class="light-note">Light-mode primary: <strong>#B44822</strong>. The original brand color remains the interactive accent on light surfaces.</div>
+        <div class="light-note">Light-mode primary: <strong>oklch(0.555 0.163 48.998)</strong>. New oklch-based color; warm amber-orange interactive accent on light surfaces.</div>
       </main>
     </div>
   </section>
@@ -339,7 +359,7 @@
           <div class="dark-stat"><div class="value">8</div><div class="label">Published</div></div>
           <div class="dark-stat"><div class="value">62%</div><div class="label">Progress</div><div class="dark-progress"><span></span></div></div>
         </div>
-        <div class="dark-note">Dark-mode primary: <strong>#D85B2A</strong>. Use it as the accent/interactive color rather than changing the underlying brand geometry.</div>
+        <div class="dark-note">Dark-mode primary: <strong>oklch(0.473 0.137 46.201)</strong>. Deeper orange-brown for dark surfaces; use as the accent/interactive color rather than changing the underlying brand geometry.</div>
       </main>
     </div>
   </section>
@@ -409,10 +429,11 @@
     <div class="checklist">
       <ul>
         <li>Mark geometry sampled directly from the finalized reference — same stroke widths, lengths, angle and dot placement, not redrawn from interpretation.</li>
-        <li>Light-mode primary remains <strong>#B44822</strong>; dark-mode primary is finalized as <strong>#D85B2A</strong> for dark surfaces and interactive accents.</li>
+        <li>Semantic color tokens updated to oklch via shadcn preset. Light-mode primary: <strong>oklch(0.555 0.163 48.998)</strong>; dark-mode primary: <strong>oklch(0.473 0.137 46.201)</strong>.</li>
+        <li>sRGB reference values <strong>#B44822</strong> (light) and <strong>#D85B2A</strong> (dark) are documented here as approximate sRGB equivalents of the live oklch primary tokens. They are not active CSS custom properties.</li>
         <li>Wordmark converted to vector outlines (Poppins Bold / Regular, matching the reference's weight contrast) — no font dependency at render time.</li>
         <li>Silhouette holds up from 512px down to a 16px browser-tab favicon.</li>
-        <li>White version is the same geometry recolored, not redrawn — safe on any dark surface; dark-mode primary uses <strong>#D85B2A</strong> for branded interactive states.</li>
+        <li>White version is the same geometry recolored, not redrawn — safe on any dark surface.</li>
         <li>No gradients, filters, masks or embedded raster data in any file.</li>
       </ul>
     </div>

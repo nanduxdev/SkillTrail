@@ -44,7 +44,8 @@ export const socialConnection = pgTable(
 			.defaultNow(),
 		updatedAt: timestamp("updated_at", { withTimezone: true })
 			.notNull()
-			.defaultNow(),
+			.defaultNow()
+			.$onUpdate(() => new Date()),
 	},
 	(t) => [
 		// Global external-identity ownership. One X/LinkedIn account → one user.

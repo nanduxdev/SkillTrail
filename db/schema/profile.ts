@@ -1,12 +1,12 @@
 import { sql } from "drizzle-orm";
 import {
-	boolean,
 	pgTable,
 	primaryKey,
 	text,
 	timestamp,
 	uniqueIndex,
 	uuid,
+	varchar,
 } from "drizzle-orm/pg-core";
 import { user } from "./auth-schema";
 import {
@@ -32,27 +32,22 @@ export const applicationProfile = pgTable("application_profile", {
 	writingTone: writingToneEnum("writing_tone"),
 	technicalDepth: technicalDepthEnum("technical_depth"),
 	emojiUsage: emojiUsageEnum("emoji_usage"),
-	writingInstruction: text("writing_instruction"),
+	writingInstruction: varchar("writing_instruction", { length: 1000 }),
 	createdAt: timestamp("created_at", { withTimezone: true })
 		.notNull()
 		.defaultNow(),
 	updatedAt: timestamp("updated_at", { withTimezone: true })
 		.notNull()
-		.defaultNow(),
+		.defaultNow()
+		.$onUpdate(() => new Date()),
 });
 
-// Suggested + custom technologies share one table (Schema Spec §2.2).
-// A custom entry a user types becomes a de-duplicated, globally visible
-// suggestion for everyone afterward — see the [ASSUMPTION] flag in the spec.
+// Pre-seeded global technologies. Users search and select from this table.
 export const technology = pgTable(
 	"technology",
 	{
 		id: uuid("id").defaultRandom().primaryKey(),
 		name: text("name").notNull(),
-		isCustom: boolean("is_custom").notNull().default(false),
-		createdByUserId: uuid("created_by_user_id").references(() => user.id, {
-			onDelete: "set null",
-		}),
 		createdAt: timestamp("created_at", { withTimezone: true })
 			.notNull()
 			.defaultNow(),
@@ -76,19 +71,13 @@ export const userTechnology = pgTable(
 	(t) => [primaryKey({ columns: [t.userId, t.technologyId] })],
 );
 
-// Mirrors `technology` exactly — kept as a separate table rather than a
-// shared "tag" table with a `kind` column because technologies and interests
-// are surfaced in different onboarding steps with different suggestion
-// sources; collapsing them would just move a discriminator column back in.
+// Pre-seeded global interests. Kept as a separate table from technology
+// because they are surfaced separately in the UI with different suggestion sets.
 export const interest = pgTable(
 	"interest",
 	{
 		id: uuid("id").defaultRandom().primaryKey(),
 		name: text("name").notNull(),
-		isCustom: boolean("is_custom").notNull().default(false),
-		createdByUserId: uuid("created_by_user_id").references(() => user.id, {
-			onDelete: "set null",
-		}),
 		createdAt: timestamp("created_at", { withTimezone: true })
 			.notNull()
 			.defaultNow(),

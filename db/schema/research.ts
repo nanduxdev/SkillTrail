@@ -20,7 +20,8 @@ export const research = pgTable(
 			.defaultNow(),
 		updatedAt: timestamp("updated_at", { withTimezone: true })
 			.notNull()
-			.defaultNow(),
+			.defaultNow()
+			.$onUpdate(() => new Date()),
 		completedAt: timestamp("completed_at", { withTimezone: true }),
 	},
 	(t) => [index("research_user_idx").on(t.userId)],

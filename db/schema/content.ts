@@ -47,7 +47,8 @@ export const content = pgTable(
 			.defaultNow(),
 		updatedAt: timestamp("updated_at", { withTimezone: true })
 			.notNull()
-			.defaultNow(),
+			.defaultNow()
+			.$onUpdate(() => new Date()),
 	},
 	(t) => [index("content_user_idx").on(t.userId)],
 );

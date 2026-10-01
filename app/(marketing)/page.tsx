@@ -9,8 +9,8 @@ import {
 	useLenisScrollTo,
 	useReveal,
 } from "@/hooks/marketingHooks";
-import { postEarlyAccess } from "@/lib/actions/early-access";
-import { Hero } from "../components/marketing/Hero";
+import { joinEarlyAccess } from "@/features/early-access/actions";
+import { Hero } from "@/components/marketing/Hero";
 
 const logo = "/brand/skilltrail-logo.svg";
 const logoWhite = "/brand/skilltrail-logo-white.svg";
@@ -332,7 +332,7 @@ function Problem() {
 					>
 						You can spend days solving a hard engineering problem and still
 						struggle to explain why it mattered. What was actually interesting?
-						What's the story? What's worth sharing?
+						What&apos;s the story? What&apos;s worth sharing?
 					</p>
 
 					<div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
@@ -563,7 +563,7 @@ function Founder() {
 							lineHeight: 1.6,
 						}}
 					>
-						Why I'm
+						Why I&apos;m
 						<br />
 						building it
 					</p>
@@ -593,7 +593,7 @@ function Founder() {
 							border: "none",
 						}}
 					>
-						"I'm building this because I needed it too."
+						&ldquo;I&apos;m building this because I needed it too.&rdquo;
 					</blockquote>
 
 					<div
@@ -612,8 +612,8 @@ function Founder() {
 								color: "var(--c-charcoal)",
 							}}
 						>
-							I'm a developer who knows how to build things, but struggled to
-							turn that work into stories, a personal brand, and a consistent
+							I&apos;m a developer who knows how to build things, but struggled
+							to turn that work into stories, a personal brand, and a consistent
 							presence online. SkillTrail started with that problem.
 						</p>
 						<p
@@ -624,8 +624,8 @@ function Founder() {
 								color: "var(--c-charcoal)",
 							}}
 						>
-							Now I'm building it for developers who have the same problem — one
-							iteration at a time, based on what actually helps.
+							Now I&apos;m building it for developers who have the same problem
+							— one iteration at a time, based on what actually helps.
 						</p>
 					</div>
 				</div>
@@ -668,13 +668,13 @@ function CTA() {
 
 		setLoading(true);
 		try {
-			const res = await postEarlyAccess({ email });
-			if (res?.success) {
+			const res = await joinEarlyAccess({ email });
+			if (res.data?.joined) {
 				setDone(true);
-			} else if (res?.error === "ALREADY_SUBSCRIBED") {
+			} else if (res.validationErrors?.fieldErrors?.email?.[0]) {
 				setMessage({
-					type: "success",
-					text: "You are already signed up for early access 🚀",
+					type: "error",
+					text: res.validationErrors.fieldErrors.email[0],
 				});
 			} else {
 				setMessage({
@@ -682,7 +682,7 @@ function CTA() {
 					text: "Something went wrong. Please try again.",
 				});
 			}
-		} catch (_err) {
+		} catch {
 			setMessage({ type: "error", text: "An unexpected error occurred." });
 		} finally {
 			setLoading(false);
@@ -728,7 +728,7 @@ function CTA() {
 						maxWidth: "50ch",
 					}}
 				>
-					I'm looking for the first developers who have this problem too —
+					I&apos;m looking for the first developers who have this problem too —
 					people willing to try it, give honest feedback, and help shape what
 					gets built next.
 				</p>
@@ -752,7 +752,7 @@ function CTA() {
 								lineHeight: 1.4,
 							}}
 						>
-							You're in. I'll be in touch when early access opens.
+							You&apos;re in. I&apos;ll be in touch when early access opens.
 						</p>
 						<p
 							style={{
